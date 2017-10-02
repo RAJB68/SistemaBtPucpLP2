@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAdministrarAconsejados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministrarAconsejados.Designer.cs">
+      <DependentUpon>frmAdministrarAconsejados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdministrarConsejeros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAdministrarAconsejados.resx">
+      <DependentUpon>frmAdministrarAconsejados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrarConsejeros.resx">
       <DependentUpon>frmAdministrarConsejeros.cs</DependentUpon>
     </EmbeddedResource>
