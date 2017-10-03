@@ -57,6 +57,12 @@
     <Compile Include="frmAdministrarConsejeros.Designer.cs">
       <DependentUpon>frmAdministrarConsejeros.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarConsejero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarConsejero.Designer.cs">
+      <DependentUpon>frmBuscarConsejero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrarConsejeros.resx">
       <DependentUpon>frmAdministrarConsejeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarConsejero.resx">
+      <DependentUpon>frmBuscarConsejero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

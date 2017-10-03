@@ -15,6 +15,19 @@ namespace Vista
         public frmAdministrarConsejeros()
         {
             InitializeComponent();
+            this.Height = 800;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBuscarConsejero f = new frmBuscarConsejero();
+           
+            f.Visible = true;
         }
     }
 }

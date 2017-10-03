@@ -16,5 +16,18 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void btnAdminConsejeros_Click(object sender, EventArgs e)
+        {
+            frmAdministrarConsejeros fConsej = new frmAdministrarConsejeros();
+            fConsej.Visible = true;
+
+        }
+
+        private void btnAdminAconsejados_Click(object sender, EventArgs e)
+        {
+            frmAdministrarAconsejados fAconsej = new frmAdministrarAconsejados();
+            fAconsej.Visible = true;
+        }
     }
 }
