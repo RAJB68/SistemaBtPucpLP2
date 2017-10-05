@@ -29,5 +29,11 @@ namespace Vista
            
             f.Visible = true;
         }
+
+        private void actividadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdministrarActividades fActivi = new frmAdministrarActividades();
+            fActivi.Visible = true;
+        }
     }
 }

@@ -29,5 +29,11 @@ namespace Vista
             frmAdministrarAconsejados fAconsej = new frmAdministrarAconsejados();
             fAconsej.Visible = true;
         }
+
+        private void btAdminActividades_Click(object sender, EventArgs e)
+        {
+            frmAdministrarActividades fActivi = new frmAdministrarActividades();
+            fActivi.Visible = true;
+        }
     }
 }

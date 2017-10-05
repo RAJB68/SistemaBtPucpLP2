@@ -51,11 +51,23 @@
     <Compile Include="frmAdministrarAconsejados.Designer.cs">
       <DependentUpon>frmAdministrarAconsejados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAdministrarActividades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministrarActividades.Designer.cs">
+      <DependentUpon>frmAdministrarActividades.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdministrarConsejeros.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAdministrarConsejeros.Designer.cs">
       <DependentUpon>frmAdministrarConsejeros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarActividad.Designer.cs">
+      <DependentUpon>frmAgregarActividad.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBuscarConsejero.cs">
       <SubType>Form</SubType>
@@ -74,8 +86,14 @@
     <EmbeddedResource Include="frmAdministrarAconsejados.resx">
       <DependentUpon>frmAdministrarAconsejados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAdministrarActividades.resx">
+      <DependentUpon>frmAdministrarActividades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrarConsejeros.resx">
       <DependentUpon>frmAdministrarConsejeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarActividad.resx">
+      <DependentUpon>frmAgregarActividad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarConsejero.resx">
       <DependentUpon>frmBuscarConsejero.cs</DependentUpon>
