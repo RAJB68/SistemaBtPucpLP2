@@ -69,6 +69,12 @@
     <Compile Include="frmAgregarActividad.Designer.cs">
       <DependentUpon>frmAgregarActividad.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarAconsejado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarAconsejado.Designer.cs">
+      <DependentUpon>frmBuscarAconsejado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscarConsejero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarActividad.resx">
       <DependentUpon>frmAgregarActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarAconsejado.resx">
+      <DependentUpon>frmBuscarAconsejado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarConsejero.resx">
       <DependentUpon>frmBuscarConsejero.cs</DependentUpon>
@@ -122,6 +131,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controlador\Controlador.csproj">
+      <Project>{411b528a-5f76-4c82-a193-bdf824c8792d}</Project>
+      <Name>Controlador</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{4418e27e-8ba1-4a6c-bb58-74876d4fbcdb}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
