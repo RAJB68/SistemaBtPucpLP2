@@ -133,6 +133,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{9b3176e6-5a90-4f8e-bd88-73ef1a9a6dfc}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Controlador\Controlador.csproj">
       <Project>{411b528a-5f76-4c82-a193-bdf824c8792d}</Project>
       <Name>Controlador</Name>

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.grpPerfilUniversitario = new System.Windows.Forms.GroupBox();
-            this.cmbEspecialidadConsej = new System.Windows.Forms.ComboBox();
+            this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.lblEspecialidad = new System.Windows.Forms.Label();
             this.lblCodigoAlumno = new System.Windows.Forms.Label();
             this.txtCodigoConsej = new System.Windows.Forms.TextBox();
@@ -53,7 +53,6 @@
             this.txtCargoConsej = new System.Windows.Forms.TextBox();
             this.txtEmpresaConsej = new System.Windows.Forms.TextBox();
             this.txtSectorConsej = new System.Windows.Forms.TextBox();
-            this.cmbGradoCcnsej = new System.Windows.Forms.ComboBox();
             this.txtAreasIntConsej = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCorreoConsej = new System.Windows.Forms.TextBox();
@@ -64,6 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelarConsejero = new System.Windows.Forms.Button();
             this.btnAgregarConsejero = new System.Windows.Forms.Button();
+            this.txtGradoConsej = new System.Windows.Forms.TextBox();
             this.grpPerfilUniversitario.SuspendLayout();
             this.grpPersonal.SuspendLayout();
             this.menuAconsejadosPrincipal.SuspendLayout();
@@ -72,7 +72,7 @@
             // 
             // grpPerfilUniversitario
             // 
-            this.grpPerfilUniversitario.Controls.Add(this.cmbEspecialidadConsej);
+            this.grpPerfilUniversitario.Controls.Add(this.txtEspecialidad);
             this.grpPerfilUniversitario.Controls.Add(this.lblEspecialidad);
             this.grpPerfilUniversitario.Controls.Add(this.lblCodigoAlumno);
             this.grpPerfilUniversitario.Controls.Add(this.txtCodigoConsej);
@@ -85,15 +85,13 @@
             this.grpPerfilUniversitario.TabStop = false;
             this.grpPerfilUniversitario.Text = "Perfil Universitario";
             // 
-            // cmbEspecialidadConsej
+            // txtEspecialidad
             // 
-            this.cmbEspecialidadConsej.Enabled = false;
-            this.cmbEspecialidadConsej.FormattingEnabled = true;
-            this.cmbEspecialidadConsej.Location = new System.Drawing.Point(415, 40);
-            this.cmbEspecialidadConsej.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbEspecialidadConsej.Name = "cmbEspecialidadConsej";
-            this.cmbEspecialidadConsej.Size = new System.Drawing.Size(249, 24);
-            this.cmbEspecialidadConsej.TabIndex = 9;
+            this.txtEspecialidad.Enabled = false;
+            this.txtEspecialidad.Location = new System.Drawing.Point(414, 41);
+            this.txtEspecialidad.Name = "txtEspecialidad";
+            this.txtEspecialidad.Size = new System.Drawing.Size(253, 22);
+            this.txtEspecialidad.TabIndex = 9;
             // 
             // lblEspecialidad
             // 
@@ -267,12 +265,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtGradoConsej);
             this.groupBox1.Controls.Add(this.txtObsConsej);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtCargoConsej);
             this.groupBox1.Controls.Add(this.txtEmpresaConsej);
             this.groupBox1.Controls.Add(this.txtSectorConsej);
-            this.groupBox1.Controls.Add(this.cmbGradoCcnsej);
             this.groupBox1.Controls.Add(this.txtAreasIntConsej);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtCorreoConsej);
@@ -333,22 +331,12 @@
             // txtSectorConsej
             // 
             this.txtSectorConsej.Enabled = false;
-            this.txtSectorConsej.Location = new System.Drawing.Point(142, 92);
+            this.txtSectorConsej.Location = new System.Drawing.Point(121, 92);
             this.txtSectorConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtSectorConsej.Name = "txtSectorConsej";
-            this.txtSectorConsej.Size = new System.Drawing.Size(105, 22);
+            this.txtSectorConsej.Size = new System.Drawing.Size(140, 22);
             this.txtSectorConsej.TabIndex = 10;
             this.txtSectorConsej.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // cmbGradoCcnsej
-            // 
-            this.cmbGradoCcnsej.Enabled = false;
-            this.cmbGradoCcnsej.FormattingEnabled = true;
-            this.cmbGradoCcnsej.Location = new System.Drawing.Point(142, 41);
-            this.cmbGradoCcnsej.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbGradoCcnsej.Name = "cmbGradoCcnsej";
-            this.cmbGradoCcnsej.Size = new System.Drawing.Size(143, 24);
-            this.cmbGradoCcnsej.TabIndex = 14;
             // 
             // txtAreasIntConsej
             // 
@@ -376,7 +364,7 @@
             this.txtCorreoConsej.Location = new System.Drawing.Point(121, 137);
             this.txtCorreoConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreoConsej.Name = "txtCorreoConsej";
-            this.txtCorreoConsej.Size = new System.Drawing.Size(373, 22);
+            this.txtCorreoConsej.Size = new System.Drawing.Size(393, 22);
             this.txtCorreoConsej.TabIndex = 11;
             // 
             // label6
@@ -450,6 +438,15 @@
             this.btnAgregarConsejero.TabIndex = 17;
             this.btnAgregarConsejero.Text = "Agregar";
             this.btnAgregarConsejero.UseVisualStyleBackColor = true;
+            this.btnAgregarConsejero.Click += new System.EventHandler(this.btnAgregarConsejero_Click);
+            // 
+            // txtGradoConsej
+            // 
+            this.txtGradoConsej.Enabled = false;
+            this.txtGradoConsej.Location = new System.Drawing.Point(121, 47);
+            this.txtGradoConsej.Name = "txtGradoConsej";
+            this.txtGradoConsej.Size = new System.Drawing.Size(140, 22);
+            this.txtGradoConsej.TabIndex = 19;
             // 
             // frmAdministrarConsejeros
             // 
@@ -480,7 +477,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpPerfilUniversitario;
-        private System.Windows.Forms.ComboBox cmbEspecialidadConsej;
         private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.Label lblCodigoAlumno;
         private System.Windows.Forms.TextBox txtCodigoConsej;
@@ -509,11 +505,12 @@
         private System.Windows.Forms.TextBox txtCargoConsej;
         private System.Windows.Forms.TextBox txtEmpresaConsej;
         private System.Windows.Forms.TextBox txtSectorConsej;
-        private System.Windows.Forms.ComboBox cmbGradoCcnsej;
         private System.Windows.Forms.TextBox txtAreasIntConsej;
         private System.Windows.Forms.TextBox txtObsConsej;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnCancelarConsejero;
         private System.Windows.Forms.Button btnAgregarConsejero;
+        private System.Windows.Forms.TextBox txtEspecialidad;
+        private System.Windows.Forms.TextBox txtGradoConsej;
     }
 }

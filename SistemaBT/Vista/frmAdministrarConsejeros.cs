@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo;
+using Controlador;
 
 namespace Vista
 {
     public partial class frmAdministrarConsejeros : Form
     {
 
-        Consejero consejero;
+        Consejero consejero = new Consejero();
+        ConsejeroBL LogNegConsejero = new ConsejeroBL();
         public frmAdministrarConsejeros()
         {
             InitializeComponent();
@@ -54,8 +56,8 @@ namespace Vista
                 dtpFechaNacConsej.Text = consejero.FechaNacimiento.ToString();
             }
             catch (Exception ex) { }
-            cmbEspecialidadConsej.Text = consejero.Especialidad;
-            cmbGradoCcnsej.Text = consejero.Grado;
+            txtEspecialidad.Text = consejero.Especialidad;
+            txtGradoConsej.Text = consejero.Grado;
 
 
 
@@ -92,8 +94,8 @@ namespace Vista
             txtTelefConsej.Enabled = true;
 
             dtpFechaNacConsej.Enabled = true;
-            cmbEspecialidadConsej.Enabled = true;
-            cmbGradoCcnsej.Enabled = true;
+            txtEspecialidad.Enabled = true;
+            txtGradoConsej.Enabled = true;
 
             txtNombreConsejero.Text = "";
             txtAreasIntConsej.Text = "";
@@ -111,8 +113,8 @@ namespace Vista
                 dtpFechaNacConsej.Text = "";
             }
             catch (Exception ex) { }
-            cmbEspecialidadConsej.Text = "";
-            cmbGradoCcnsej.Text = "";
+            txtEspecialidad.Text = "";
+            txtGradoConsej.Text = "";
 
             guardarToolStripMenuItem.Enabled = true;
         }
@@ -125,6 +127,22 @@ namespace Vista
         private void btnCancelarConsejero_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnAgregarConsejero_Click(object sender, EventArgs e)
+        {
+            //Mandar registro a la logica del negocio
+            consejero.NombreCompleto = txtNombreConsejero.Text;
+            consejero.AreasInteres1 = txtAreasIntConsej.Text;
+            consejero.Cargo = txtCargoConsej.Text;
+            consejero.Codigo = Int32.Parse(txtCodigoConsej.Text);
+            consejero.Correo = txtCorreoConsej.Text;
+            consejero.Direccion = txtDireccConsej.Text;
+            consejero.Empresa = txtEmpresaConsej.Text;
+            consejero.Observaciones = txtObsConsej.Text;
+            consejero.Sector = txtSectorConsej.Text;
+            consejero.Telefono = Int32.Parse(txtTelefConsej.Text);
+            LogNegConsejero.registrarConsejero(this.consejero);
         }
     }
 }
