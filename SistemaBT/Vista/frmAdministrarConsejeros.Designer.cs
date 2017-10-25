@@ -46,7 +46,6 @@
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vincularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtObsConsej = new System.Windows.Forms.TextBox();
@@ -78,9 +77,9 @@
             this.grpPerfilUniversitario.Controls.Add(this.lblCodigoAlumno);
             this.grpPerfilUniversitario.Controls.Add(this.txtCodigoConsej);
             this.grpPerfilUniversitario.Location = new System.Drawing.Point(10, 262);
-            this.grpPerfilUniversitario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpPerfilUniversitario.Margin = new System.Windows.Forms.Padding(4);
             this.grpPerfilUniversitario.Name = "grpPerfilUniversitario";
-            this.grpPerfilUniversitario.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpPerfilUniversitario.Padding = new System.Windows.Forms.Padding(4);
             this.grpPerfilUniversitario.Size = new System.Drawing.Size(696, 91);
             this.grpPerfilUniversitario.TabIndex = 3;
             this.grpPerfilUniversitario.TabStop = false;
@@ -91,7 +90,7 @@
             this.cmbEspecialidadConsej.Enabled = false;
             this.cmbEspecialidadConsej.FormattingEnabled = true;
             this.cmbEspecialidadConsej.Location = new System.Drawing.Point(415, 40);
-            this.cmbEspecialidadConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEspecialidadConsej.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEspecialidadConsej.Name = "cmbEspecialidadConsej";
             this.cmbEspecialidadConsej.Size = new System.Drawing.Size(249, 24);
             this.cmbEspecialidadConsej.TabIndex = 9;
@@ -120,7 +119,7 @@
             // 
             this.txtCodigoConsej.Enabled = false;
             this.txtCodigoConsej.Location = new System.Drawing.Point(161, 40);
-            this.txtCodigoConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoConsej.Name = "txtCodigoConsej";
             this.txtCodigoConsej.Size = new System.Drawing.Size(105, 22);
             this.txtCodigoConsej.TabIndex = 0;
@@ -138,9 +137,9 @@
             this.grpPersonal.Controls.Add(this.txtNombreConsejero);
             this.grpPersonal.Controls.Add(this.lblNombreCompleto);
             this.grpPersonal.Location = new System.Drawing.Point(13, 32);
-            this.grpPersonal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpPersonal.Margin = new System.Windows.Forms.Padding(4);
             this.grpPersonal.Name = "grpPersonal";
-            this.grpPersonal.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpPersonal.Padding = new System.Windows.Forms.Padding(4);
             this.grpPersonal.Size = new System.Drawing.Size(696, 196);
             this.grpPersonal.TabIndex = 14;
             this.grpPersonal.TabStop = false;
@@ -160,7 +159,7 @@
             // 
             this.txtDireccConsej.Enabled = false;
             this.txtDireccConsej.Location = new System.Drawing.Point(107, 141);
-            this.txtDireccConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccConsej.Name = "txtDireccConsej";
             this.txtDireccConsej.Size = new System.Drawing.Size(557, 22);
             this.txtDireccConsej.TabIndex = 8;
@@ -169,7 +168,7 @@
             // 
             this.txtTelefConsej.Enabled = false;
             this.txtTelefConsej.Location = new System.Drawing.Point(492, 88);
-            this.txtTelefConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefConsej.Name = "txtTelefConsej";
             this.txtTelefConsej.Size = new System.Drawing.Size(172, 22);
             this.txtTelefConsej.TabIndex = 5;
@@ -189,7 +188,7 @@
             this.dtpFechaNacConsej.Enabled = false;
             this.dtpFechaNacConsej.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaNacConsej.Location = new System.Drawing.Point(188, 88);
-            this.dtpFechaNacConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaNacConsej.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaNacConsej.Name = "dtpFechaNacConsej";
             this.dtpFechaNacConsej.Size = new System.Drawing.Size(135, 22);
             this.dtpFechaNacConsej.TabIndex = 3;
@@ -208,7 +207,7 @@
             // 
             this.txtNombreConsejero.Enabled = false;
             this.txtNombreConsejero.Location = new System.Drawing.Point(188, 33);
-            this.txtNombreConsejero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreConsejero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreConsejero.Name = "txtNombreConsejero";
             this.txtNombreConsejero.Size = new System.Drawing.Size(476, 22);
             this.txtNombreConsejero.TabIndex = 1;
@@ -230,12 +229,11 @@
             this.nuevoToolStripMenuItem,
             this.guardarToolStripMenuItem,
             this.modificarToolStripMenuItem,
-            this.vincularToolStripMenuItem,
             this.actividadToolStripMenuItem});
             this.menuAconsejadosPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuAconsejadosPrincipal.Name = "menuAconsejadosPrincipal";
             this.menuAconsejadosPrincipal.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.menuAconsejadosPrincipal.Size = new System.Drawing.Size(737, 30);
+            this.menuAconsejadosPrincipal.Size = new System.Drawing.Size(744, 30);
             this.menuAconsejadosPrincipal.TabIndex = 15;
             this.menuAconsejadosPrincipal.Text = "menuStrip1";
             // 
@@ -244,6 +242,7 @@
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem
             // 
@@ -258,12 +257,6 @@
             this.modificarToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
-            // 
-            // vincularToolStripMenuItem
-            // 
-            this.vincularToolStripMenuItem.Name = "vincularToolStripMenuItem";
-            this.vincularToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
-            this.vincularToolStripMenuItem.Text = "Vincular";
             // 
             // actividadToolStripMenuItem
             // 
@@ -289,9 +282,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(15, 369);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(696, 396);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
@@ -301,7 +294,7 @@
             // 
             this.txtObsConsej.Enabled = false;
             this.txtObsConsej.Location = new System.Drawing.Point(186, 292);
-            this.txtObsConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtObsConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtObsConsej.Multiline = true;
             this.txtObsConsej.Name = "txtObsConsej";
             this.txtObsConsej.Size = new System.Drawing.Size(451, 83);
@@ -321,7 +314,7 @@
             // 
             this.txtCargoConsej.Enabled = false;
             this.txtCargoConsej.Location = new System.Drawing.Point(409, 92);
-            this.txtCargoConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCargoConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtCargoConsej.Name = "txtCargoConsej";
             this.txtCargoConsej.Size = new System.Drawing.Size(105, 22);
             this.txtCargoConsej.TabIndex = 16;
@@ -331,7 +324,7 @@
             // 
             this.txtEmpresaConsej.Enabled = false;
             this.txtEmpresaConsej.Location = new System.Drawing.Point(409, 45);
-            this.txtEmpresaConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmpresaConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpresaConsej.Name = "txtEmpresaConsej";
             this.txtEmpresaConsej.Size = new System.Drawing.Size(105, 22);
             this.txtEmpresaConsej.TabIndex = 15;
@@ -341,7 +334,7 @@
             // 
             this.txtSectorConsej.Enabled = false;
             this.txtSectorConsej.Location = new System.Drawing.Point(142, 92);
-            this.txtSectorConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSectorConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtSectorConsej.Name = "txtSectorConsej";
             this.txtSectorConsej.Size = new System.Drawing.Size(105, 22);
             this.txtSectorConsej.TabIndex = 10;
@@ -352,7 +345,7 @@
             this.cmbGradoCcnsej.Enabled = false;
             this.cmbGradoCcnsej.FormattingEnabled = true;
             this.cmbGradoCcnsej.Location = new System.Drawing.Point(142, 41);
-            this.cmbGradoCcnsej.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbGradoCcnsej.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGradoCcnsej.Name = "cmbGradoCcnsej";
             this.cmbGradoCcnsej.Size = new System.Drawing.Size(143, 24);
             this.cmbGradoCcnsej.TabIndex = 14;
@@ -361,7 +354,7 @@
             // 
             this.txtAreasIntConsej.Enabled = false;
             this.txtAreasIntConsej.Location = new System.Drawing.Point(186, 185);
-            this.txtAreasIntConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAreasIntConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtAreasIntConsej.Multiline = true;
             this.txtAreasIntConsej.Name = "txtAreasIntConsej";
             this.txtAreasIntConsej.Size = new System.Drawing.Size(451, 83);
@@ -381,7 +374,7 @@
             // 
             this.txtCorreoConsej.Enabled = false;
             this.txtCorreoConsej.Location = new System.Drawing.Point(121, 137);
-            this.txtCorreoConsej.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreoConsej.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreoConsej.Name = "txtCorreoConsej";
             this.txtCorreoConsej.Size = new System.Drawing.Size(373, 22);
             this.txtCorreoConsej.TabIndex = 11;
@@ -440,17 +433,18 @@
             // btnCancelarConsejero
             // 
             this.btnCancelarConsejero.Location = new System.Drawing.Point(606, 788);
-            this.btnCancelarConsejero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelarConsejero.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelarConsejero.Name = "btnCancelarConsejero";
             this.btnCancelarConsejero.Size = new System.Drawing.Size(100, 28);
             this.btnCancelarConsejero.TabIndex = 18;
             this.btnCancelarConsejero.Text = "Cancelar";
             this.btnCancelarConsejero.UseVisualStyleBackColor = true;
+            this.btnCancelarConsejero.Click += new System.EventHandler(this.btnCancelarConsejero_Click_1);
             // 
             // btnAgregarConsejero
             // 
             this.btnAgregarConsejero.Location = new System.Drawing.Point(476, 788);
-            this.btnAgregarConsejero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarConsejero.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarConsejero.Name = "btnAgregarConsejero";
             this.btnAgregarConsejero.Size = new System.Drawing.Size(100, 28);
             this.btnAgregarConsejero.TabIndex = 17;
@@ -461,7 +455,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 669);
+            this.ClientSize = new System.Drawing.Size(744, 869);
             this.Controls.Add(this.btnCancelarConsejero);
             this.Controls.Add(this.btnAgregarConsejero);
             this.Controls.Add(this.groupBox1);
@@ -503,7 +497,6 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vincularToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actividadToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;

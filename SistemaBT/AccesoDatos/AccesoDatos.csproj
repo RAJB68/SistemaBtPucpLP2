@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AconsejadoDA.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ConsejeroDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
