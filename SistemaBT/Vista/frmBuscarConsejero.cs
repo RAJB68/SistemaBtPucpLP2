@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo;
+using Controlador;
 
 namespace Vista
 {
@@ -17,6 +18,12 @@ namespace Vista
         public frmBuscarConsejero()
         {
             InitializeComponent();
+            ConsejeroBL consejeroLogNeg = new ConsejeroBL();
+            BindingList<Consejero> consejeros = consejeroLogNeg.leerConsejeros();
+            dgvConsejeros.AutoGenerateColumns = false;
+            dgvConsejeros.DataSource = consejeros;
+         
+
         }
 
         public Consejero ConsejeroSeleccionado { get => _consejeroSeleccionado; set => _consejeroSeleccionado = value; }
@@ -24,7 +31,7 @@ namespace Vista
         private void button1_Click(object sender, EventArgs e)
         {
             //Seleccionar el consejero
-            _consejeroSeleccionado = new Consejero();
+            _consejeroSeleccionado = (Consejero)dgvConsejeros.CurrentRow.DataBoundItem;
 
             this.DialogResult = DialogResult.OK;
         }

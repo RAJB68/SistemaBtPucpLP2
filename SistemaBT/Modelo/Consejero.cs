@@ -25,6 +25,11 @@ namespace Modelo
         private string observaciones;
         private string estado;
 
+        public Consejero()
+        {
+            estado = "Habilitado";
+        }
+
         private BindingList<Actividad> actividades = new BindingList<Actividad>();
 
         public int Codigo { get => codigo; set => codigo = value; }

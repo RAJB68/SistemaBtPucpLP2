@@ -48,6 +48,7 @@
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGradoConsej = new System.Windows.Forms.TextBox();
             this.txtObsConsej = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCargoConsej = new System.Windows.Forms.TextBox();
@@ -63,7 +64,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelarConsejero = new System.Windows.Forms.Button();
             this.btnAgregarConsejero = new System.Windows.Forms.Button();
-            this.txtGradoConsej = new System.Windows.Forms.TextBox();
             this.grpPerfilUniversitario.SuspendLayout();
             this.grpPersonal.SuspendLayout();
             this.menuAconsejadosPrincipal.SuspendLayout();
@@ -183,6 +183,7 @@
             // 
             // dtpFechaNacConsej
             // 
+            this.dtpFechaNacConsej.CustomFormat = "";
             this.dtpFechaNacConsej.Enabled = false;
             this.dtpFechaNacConsej.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaNacConsej.Location = new System.Drawing.Point(188, 88);
@@ -287,6 +288,14 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Perfil Profesional";
+            // 
+            // txtGradoConsej
+            // 
+            this.txtGradoConsej.Enabled = false;
+            this.txtGradoConsej.Location = new System.Drawing.Point(121, 47);
+            this.txtGradoConsej.Name = "txtGradoConsej";
+            this.txtGradoConsej.Size = new System.Drawing.Size(140, 22);
+            this.txtGradoConsej.TabIndex = 19;
             // 
             // txtObsConsej
             // 
@@ -440,14 +449,6 @@
             this.btnAgregarConsejero.UseVisualStyleBackColor = true;
             this.btnAgregarConsejero.Click += new System.EventHandler(this.btnAgregarConsejero_Click);
             // 
-            // txtGradoConsej
-            // 
-            this.txtGradoConsej.Enabled = false;
-            this.txtGradoConsej.Location = new System.Drawing.Point(121, 47);
-            this.txtGradoConsej.Name = "txtGradoConsej";
-            this.txtGradoConsej.Size = new System.Drawing.Size(140, 22);
-            this.txtGradoConsej.TabIndex = 19;
-            // 
             // frmAdministrarConsejeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -461,6 +462,7 @@
             this.Controls.Add(this.grpPerfilUniversitario);
             this.Name = "frmAdministrarConsejeros";
             this.Text = "Administrar Consejeros";
+            this.Load += new System.EventHandler(this.frmAdministrarConsejeros_Load);
             this.grpPerfilUniversitario.ResumeLayout(false);
             this.grpPerfilUniversitario.PerformLayout();
             this.grpPersonal.ResumeLayout(false);

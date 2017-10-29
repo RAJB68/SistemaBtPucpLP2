@@ -31,5 +31,16 @@ namespace Vista
             fAgregarAct.Visible = true;
             
         }
+
+        private void btBuscarConsejero_Click(object sender, EventArgs e)
+        {
+            frmBuscarConsejero f = new frmBuscarConsejero();
+
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+
+                f.Dispose();
+            }
+        }
     }
 }

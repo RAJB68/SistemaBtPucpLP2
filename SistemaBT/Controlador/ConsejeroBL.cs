@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Modelo;
 using AccesoDatos;
+using System.ComponentModel;
 
 namespace Controlador
 {
@@ -21,5 +22,14 @@ namespace Controlador
             bool exito = false;
             exito = consejeroDataAccess.DAregistrarConsejero(c);
         }
+
+        public BindingList<Consejero> leerConsejeros()
+        {
+            return consejeroDataAccess.leerConsejeros();
+        }
+
+
+
+
     }
 }

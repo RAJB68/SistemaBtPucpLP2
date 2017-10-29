@@ -38,7 +38,8 @@ namespace Vista
                 f.Dispose();
             }
             consejero = f.ConsejeroSeleccionado;
-
+            btnAgregarConsejero.Enabled = false;
+            guardarToolStripMenuItem.Enabled = true;
 
             txtNombreConsejero.Text = consejero.NombreCompleto;
             txtAreasIntConsej.Text = consejero.AreasInteres1;
@@ -134,6 +135,8 @@ namespace Vista
             //Mandar registro a la logica del negocio
             consejero.NombreCompleto = txtNombreConsejero.Text;
             consejero.AreasInteres1 = txtAreasIntConsej.Text;
+            consejero.Especialidad = txtEspecialidad.Text;
+            consejero.Grado = txtGradoConsej.Text;
             consejero.Cargo = txtCargoConsej.Text;
             consejero.Codigo = Int32.Parse(txtCodigoConsej.Text);
             consejero.Correo = txtCorreoConsej.Text;
@@ -143,6 +146,14 @@ namespace Vista
             consejero.Sector = txtSectorConsej.Text;
             consejero.Telefono = Int32.Parse(txtTelefConsej.Text);
             LogNegConsejero.registrarConsejero(this.consejero);
+
+
+           MessageBox.Show("Consejero Agregado");
+        }
+
+        private void frmAdministrarConsejeros_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Modelo;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace AccesoDatos
 {
@@ -65,12 +66,12 @@ namespace AccesoDatos
 
         public bool DAregistrarConsejero(Consejero c)
         {
-            string query = "INSERT INTO Consejero(NombreCompleto, FechaNacimiento, Especialidad, " +
+            string query = "INSERT INTO Consejero(IdConsejero, NombreCompleto, FechaNacimiento, Especialidad, " +
                                                   "Grado, Telefono, Correo, Direccion, Empresa, Sector, " +
                                                   "Cargo, AreasInteres, FechaIngreso, Observaciones, Estado) " +
-                           "VALUES('"+c.NombreCompleto+"','"+c.FechaNacimiento.ToString()+"','"+c.Especialidad+
+                           "VALUES('"+c.Codigo+"','"+c.NombreCompleto+"','"+c.FechaNacimiento.ToString("aaaa-mm-dd")+"','"+c.Especialidad+
                            "','"+c.Grado+ "','"+c.Telefono+ "','"+c.Correo+ "','"+c.Direccion+ "','"+c.Empresa+
-                           "','"+c.Sector+ "','"+c.Cargo+ "','"+c.AreasInteres1+ "','"+c.FechaIngreso.ToString()+
+                           "','"+c.Sector+ "','"+c.Cargo+ "','"+c.AreasInteres1+ "','"+c.FechaIngreso.ToString("aaaa-mm-dd") +
                            "','"+c.Observaciones+"','"+c.Estado+ "')";
 
             if (this.AbrirConexion())
@@ -81,5 +82,58 @@ namespace AccesoDatos
             }
             return true;
         }
+
+        public BindingList<Consejero> leerConsejeros()
+        {
+            BindingList<Consejero> consejeros = new BindingList<Consejero>();
+
+            string query = "SELECT * FROM Consejero";
+
+            if (this.AbrirConexion())
+            {
+                MySqlCommand cmd = conexion.CreateCommand();
+                cmd.CommandText = query;
+
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Consejero c = new Consejero(); ;
+                    c.Codigo = dr.GetInt32("IdConsejero");
+                    c.NombreCompleto=dr.GetString("NombreCompleto");
+                    c.FechaNacimiento = dr.GetDateTime("FechaNacimiento");
+                    c.Especialidad = dr.GetString("Especialidad");
+                    c.Grado = dr.GetString("Grado");
+                    c.Telefono = dr.GetInt32("Telefono");
+                    c.Correo = dr.GetString("Correo");
+                    c.Direccion = dr.GetString("Direccion");
+                    c.Empresa = dr.GetString("Empresa"); 
+                    c.Sector = dr.GetString("Sector");
+                    c.Cargo = dr.GetString("Cargo");
+                    c.AreasInteres1 = dr.GetString("AreasInteres");
+                    c.FechaIngreso = dr.GetDateTime("FechaIngreso");
+                    c.Observaciones = dr.GetString("Observaciones");
+                    c.Estado = dr.GetString("Estado");
+
+                    consejeros.Add(c);
+
+
+                }
+
+
+
+
+
+
+
+                this.CerrarConexion();
+            }
+
+            return consejeros;
+
+
+        }
+
     }
 }

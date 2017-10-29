@@ -35,10 +35,10 @@
             this.btBuscarConsejero = new System.Windows.Forms.Button();
             this.btBuscarAconsejado = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvActividades = new System.Windows.Forms.DataGridView();
-            this.btAgregarActividad = new System.Windows.Forms.Button();
-            this.btModificarActividad = new System.Windows.Forms.Button();
             this.btEliminarActividad = new System.Windows.Forms.Button();
+            this.btModificarActividad = new System.Windows.Forms.Button();
+            this.btAgregarActividad = new System.Windows.Forms.Button();
+            this.dgvActividades = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +83,7 @@
             this.btBuscarConsejero.TabIndex = 5;
             this.btBuscarConsejero.Text = "Buscar Consejero";
             this.btBuscarConsejero.UseVisualStyleBackColor = true;
+            this.btBuscarConsejero.Click += new System.EventHandler(this.btBuscarConsejero_Click);
             // 
             // btBuscarAconsejado
             // 
@@ -106,24 +107,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actividades";
             // 
-            // dgvActividades
+            // btEliminarActividad
             // 
-            this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActividades.Location = new System.Drawing.Point(7, 22);
-            this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.RowTemplate.Height = 24;
-            this.dgvActividades.Size = new System.Drawing.Size(608, 309);
-            this.dgvActividades.TabIndex = 0;
-            // 
-            // btAgregarActividad
-            // 
-            this.btAgregarActividad.Location = new System.Drawing.Point(7, 338);
-            this.btAgregarActividad.Name = "btAgregarActividad";
-            this.btAgregarActividad.Size = new System.Drawing.Size(109, 30);
-            this.btAgregarActividad.TabIndex = 1;
-            this.btAgregarActividad.Text = "Agregar";
-            this.btAgregarActividad.UseVisualStyleBackColor = true;
-            this.btAgregarActividad.Click += new System.EventHandler(this.btAgregarActividad_Click);
+            this.btEliminarActividad.Location = new System.Drawing.Point(510, 337);
+            this.btEliminarActividad.Name = "btEliminarActividad";
+            this.btEliminarActividad.Size = new System.Drawing.Size(105, 30);
+            this.btEliminarActividad.TabIndex = 3;
+            this.btEliminarActividad.Text = "Eliminar";
+            this.btEliminarActividad.UseVisualStyleBackColor = true;
             // 
             // btModificarActividad
             // 
@@ -135,14 +126,24 @@
             this.btModificarActividad.UseVisualStyleBackColor = true;
             this.btModificarActividad.Click += new System.EventHandler(this.btModificarActividad_Click);
             // 
-            // btEliminarActividad
+            // btAgregarActividad
             // 
-            this.btEliminarActividad.Location = new System.Drawing.Point(510, 337);
-            this.btEliminarActividad.Name = "btEliminarActividad";
-            this.btEliminarActividad.Size = new System.Drawing.Size(105, 30);
-            this.btEliminarActividad.TabIndex = 3;
-            this.btEliminarActividad.Text = "Eliminar";
-            this.btEliminarActividad.UseVisualStyleBackColor = true;
+            this.btAgregarActividad.Location = new System.Drawing.Point(7, 338);
+            this.btAgregarActividad.Name = "btAgregarActividad";
+            this.btAgregarActividad.Size = new System.Drawing.Size(109, 30);
+            this.btAgregarActividad.TabIndex = 1;
+            this.btAgregarActividad.Text = "Agregar";
+            this.btAgregarActividad.UseVisualStyleBackColor = true;
+            this.btAgregarActividad.Click += new System.EventHandler(this.btAgregarActividad_Click);
+            // 
+            // dgvActividades
+            // 
+            this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvActividades.Location = new System.Drawing.Point(7, 22);
+            this.dgvActividades.Name = "dgvActividades";
+            this.dgvActividades.RowTemplate.Height = 24;
+            this.dgvActividades.Size = new System.Drawing.Size(608, 309);
+            this.dgvActividades.TabIndex = 0;
             // 
             // frmAdministrarActividades
             // 
