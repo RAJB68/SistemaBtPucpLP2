@@ -51,11 +51,11 @@
             this.numUDCiclo = new System.Windows.Forms.NumericUpDown();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
-            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
             this.lblEspecialidad = new System.Windows.Forms.Label();
             this.lblCodigoAlumno = new System.Windows.Forms.Label();
             this.txtCodAlumno = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.menuAconsejadosPrincipal.SuspendLayout();
             this.grpPersonal.SuspendLayout();
             this.grpPerfilUniversitario.SuspendLayout();
@@ -187,9 +187,9 @@
             this.lblNombreCompleto.AutoSize = true;
             this.lblNombreCompleto.Location = new System.Drawing.Point(19, 30);
             this.lblNombreCompleto.Name = "lblNombreCompleto";
-            this.lblNombreCompleto.Size = new System.Drawing.Size(115, 13);
+            this.lblNombreCompleto.Size = new System.Drawing.Size(105, 13);
             this.lblNombreCompleto.TabIndex = 0;
-            this.lblNombreCompleto.Text = "Nombres y Apellidos(*):";
+            this.lblNombreCompleto.Text = "Nombres y Apellidos:";
             // 
             // btnAgregar
             // 
@@ -213,13 +213,13 @@
             // 
             // grpPerfilUniversitario
             // 
+            this.grpPerfilUniversitario.Controls.Add(this.txtEspecialidad);
             this.grpPerfilUniversitario.Controls.Add(this.lblObservaciones);
             this.grpPerfilUniversitario.Controls.Add(this.txtObservaciones);
             this.grpPerfilUniversitario.Controls.Add(this.lblNumeroCiclo);
             this.grpPerfilUniversitario.Controls.Add(this.numUDCiclo);
             this.grpPerfilUniversitario.Controls.Add(this.txtCorreo);
             this.grpPerfilUniversitario.Controls.Add(this.lblCorreo);
-            this.grpPerfilUniversitario.Controls.Add(this.cmbEspecialidad);
             this.grpPerfilUniversitario.Controls.Add(this.lblEspecialidad);
             this.grpPerfilUniversitario.Controls.Add(this.lblCodigoAlumno);
             this.grpPerfilUniversitario.Controls.Add(this.txtCodAlumno);
@@ -260,6 +260,11 @@
             // numUDCiclo
             // 
             this.numUDCiclo.Location = new System.Drawing.Point(67, 73);
+            this.numUDCiclo.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.numUDCiclo.Name = "numUDCiclo";
             this.numUDCiclo.Size = new System.Drawing.Size(48, 20);
             this.numUDCiclo.TabIndex = 10;
@@ -287,23 +292,14 @@
             this.lblCorreo.TabIndex = 6;
             this.lblCorreo.Text = "Correo:";
             // 
-            // cmbEspecialidad
-            // 
-            this.cmbEspecialidad.Enabled = false;
-            this.cmbEspecialidad.FormattingEnabled = true;
-            this.cmbEspecialidad.Location = new System.Drawing.Point(311, 32);
-            this.cmbEspecialidad.Name = "cmbEspecialidad";
-            this.cmbEspecialidad.Size = new System.Drawing.Size(199, 21);
-            this.cmbEspecialidad.TabIndex = 9;
-            // 
             // lblEspecialidad
             // 
             this.lblEspecialidad.AutoSize = true;
-            this.lblEspecialidad.Location = new System.Drawing.Point(225, 36);
+            this.lblEspecialidad.Location = new System.Drawing.Point(235, 36);
             this.lblEspecialidad.Name = "lblEspecialidad";
-            this.lblEspecialidad.Size = new System.Drawing.Size(80, 13);
+            this.lblEspecialidad.Size = new System.Drawing.Size(70, 13);
             this.lblEspecialidad.TabIndex = 8;
-            this.lblEspecialidad.Text = "Especialidad(*):";
+            this.lblEspecialidad.Text = "Especialidad:";
             // 
             // lblCodigoAlumno
             // 
@@ -331,6 +327,13 @@
             this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // txtEspecialidad
+            // 
+            this.txtEspecialidad.Location = new System.Drawing.Point(311, 33);
+            this.txtEspecialidad.Name = "txtEspecialidad";
+            this.txtEspecialidad.Size = new System.Drawing.Size(199, 20);
+            this.txtEspecialidad.TabIndex = 14;
             // 
             // frmAdministrarAconsejados
             // 
@@ -383,10 +386,10 @@
         private System.Windows.Forms.NumericUpDown numUDCiclo;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label lblCorreo;
-        private System.Windows.Forms.ComboBox cmbEspecialidad;
         private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.Label lblCodigoAlumno;
         private System.Windows.Forms.TextBox txtCodAlumno;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.TextBox txtEspecialidad;
     }
 }

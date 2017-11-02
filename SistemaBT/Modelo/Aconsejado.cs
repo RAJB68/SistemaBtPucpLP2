@@ -18,10 +18,10 @@ namespace Modelo
         private int _codigo;
         private string _especialidad;
         private int _ciclo;
-        private int _estado;
+        private string _estado;
         private string _observaciones;
 
-        public Aconsejado(string nombreCompleto, DateTime fechaNacimiento, string correo, string direccion, int codigo, string especialidad, int ciclo, int estado, string observaciones)
+        public Aconsejado(string nombreCompleto, DateTime fechaNacimiento, string correo, string direccion, int codigo, string especialidad, int ciclo, string estado, string observaciones)
         {
             _nombreCompleto = nombreCompleto;
             _fechaNacimiento = fechaNacimiento;
@@ -34,7 +34,7 @@ namespace Modelo
             _observaciones = observaciones;
         }
 
-        public Aconsejado() { }
+        public Aconsejado() { _estado = "inactivo"; }
 
         public string NombreCompleto { get => _nombreCompleto; set => _nombreCompleto = value; }
         public DateTime FechaNacimiento { get => _fechaNacimiento; set => _fechaNacimiento = value; }
@@ -43,7 +43,7 @@ namespace Modelo
         public int Codigo { get => _codigo; set => _codigo = value; }
         public string Especialidad { get => _especialidad; set => _especialidad = value; }
         public int Ciclo { get => _ciclo; set => _ciclo = value; }
-        public int Estado { get => _estado; set => _estado = value; }
+        public string Estado { get => _estado; set => _estado = value; }
         public string Observaciones { get => _observaciones; set => _observaciones = value; }
         public int Telefono { get => _telefono; set => _telefono = value; }
     }

@@ -22,6 +22,7 @@ namespace Vista
         {
             InitializeComponent();
             modificarEstado(estado.INICIO);
+            aLogicaNeg = new AconsejadoBL();
             //BindingList<Especialidad> listaEsp = new BindingList<Especialidad>();
             //listaEsp = eLogicaNeg.devolverLista();
             //cmbEspecialidad.ValueMember = "Nombre";
@@ -51,8 +52,7 @@ namespace Vista
                 txtObservaciones.Enabled = false;
                 btnAgregar.Enabled = false;
                 btnCancelar.Enabled = false;
-                cmbEspecialidad.SelectedItem = null;
-                cmbEspecialidad.Enabled = false;
+                txtEspecialidad.Enabled = false;
                 numUDCiclo.Value = 1;
                 numUDCiclo.Enabled = false;
 
@@ -71,7 +71,7 @@ namespace Vista
                 txtObservaciones.Enabled = true;
                 btnAgregar.Enabled = true;
                 btnCancelar.Enabled = true;
-                cmbEspecialidad.Enabled = true;
+                txtEspecialidad.Enabled = true;
                 numUDCiclo.Enabled = true;
 
                 nuevoToolStripMenuItem.Enabled = false;
@@ -89,7 +89,7 @@ namespace Vista
                 txtObservaciones.Enabled = false;
                 btnAgregar.Enabled = false;
                 btnCancelar.Enabled = false;
-                cmbEspecialidad.Enabled = false;
+                txtEspecialidad.Enabled = false;
                 numUDCiclo.Enabled = false;
 
                 nuevoToolStripMenuItem.Enabled = true;
@@ -98,25 +98,25 @@ namespace Vista
                 actividadToolStripMenuItem.Enabled = false;
             } else if (e == estado.MODIFICAR)    //manda a un formulario a buscar el aconsejado a modificar y llena los campos con el seleccionado
             {
-                txtNombreCompleto.Text = a.NombreCompleto;
+                //txtNombreCompleto.Text = a.NombreCompleto;
                 txtNombreCompleto.Enabled = true;
-                txtNumeroTelefono.Text = a.Telefono.ToString();
+                //txtNumeroTelefono.Text = a.Telefono.ToString();
                 txtNumeroTelefono.Enabled = true;
-                ftpFechaNacimiento.Value = a.FechaNacimiento;
+                //ftpFechaNacimiento.Value = a.FechaNacimiento;
                 ftpFechaNacimiento.Enabled = true;
-                txtDireccion.Text = a.Direccion;
+                //txtDireccion.Text = a.Direccion;
                 txtDireccion.Enabled = true;
-                txtCodAlumno.Text = a.Codigo.ToString();
+                //txtCodAlumno.Text = a.Codigo.ToString();
                 txtCodAlumno.Enabled = true;
-                txtCorreo.Text = a.Correo;
+                //txtCorreo.Text = a.Correo;
                 txtCorreo.Enabled = true;
-                txtObservaciones.Text = a.Observaciones;
+                //txtObservaciones.Text = a.Observaciones;
                 txtObservaciones.Enabled = true;
                 btnAgregar.Enabled = false;
                 btnCancelar.Enabled = false;
                 // cmbEspecialidad.SelectedItem = ;        falta decidir como manejar la especialidad
-                cmbEspecialidad.Enabled = true;
-                numUDCiclo.Value = a.Ciclo;
+                txtEspecialidad.Enabled = true;
+                //numUDCiclo.Value = a.Ciclo;
                 numUDCiclo.Enabled = true;
 
                 nuevoToolStripMenuItem.Enabled = true;
@@ -156,7 +156,7 @@ namespace Vista
                 MessageBox.Show("No se ingresó nombre del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             } else a.NombreCompleto = txtNombreCompleto.Text;
 
-            if (ftpFechaNacimiento.Value == DateTime.Today)
+            if (16 > (DateTime.Today.Year - ftpFechaNacimiento.Value.Year))
             {
                 MessageBox.Show("La fecha de nacimiento no ha sido elegida", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             } else a.FechaNacimiento = ftpFechaNacimiento.Value;
@@ -177,7 +177,7 @@ namespace Vista
 
             try
             {
-                a.Codigo = Int32.Parse(txtCodAlumno.Text);
+                Int32.Parse(txtCodAlumno.Text);
             }
             catch (Exception exp)
             {
@@ -188,14 +188,26 @@ namespace Vista
             else { MessageBox.Show("Codigo ingresado no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
             //////////////ESPECIALIDAD
-            //if (cmbEspecialidad.SelectedItem == null)
-            //{
-            //    MessageBox.Show("Debe seleccionar una especialidad", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
-            //a.Especialidad = (Especialidad)cmbEspecialidad.SelectedItem;
+            if (txtEspecialidad.Text == null)
+            {
+                MessageBox.Show("No se ingresó especialidad del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            else a.Especialidad = txtEspecialidad.Text;
 
-            if (numUDCiclo.Value > 0) a.Ciclo = (int)numUDCiclo.Value;
+            if (txtObservaciones.Text == null)
+            {
+                MessageBox.Show("No existen observaciones del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
+            }
+            else a.Observaciones = txtObservaciones.Text;
+
+            if (txtCorreo.Text == null)
+            {
+                MessageBox.Show("No se ingresó correo del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
+            }
+            else a.Correo = txtCorreo.Text;
+
+
+            if ((numUDCiclo.Value > 0) & (numUDCiclo.Value <= 10)) a.Ciclo = (int)numUDCiclo.Value;
             else { MessageBox.Show("Ciclo elegido no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
             //////MOSTRAR MENSAJE DE CONFIRMACION
@@ -221,13 +233,14 @@ namespace Vista
             frmBuscarAconsejado frmBA = new frmBuscarAconsejado();
             if (frmBA.ShowDialog() == DialogResult.OK)
             {
+                modificarEstado(estado.MODIFICAR);
                 a = frmBA.AconsejadoSeleccionado;
                 txtNombreCompleto.Text = a.NombreCompleto;
                 ftpFechaNacimiento.Value = a.FechaNacimiento;
                 txtNumeroTelefono.Text = a.Telefono.ToString();
                 txtDireccion.Text = a.Direccion;
                 txtCodAlumno.Text = a.Codigo.ToString();
-                //cmbEspecialidad.SelectedIndex = ;
+                txtEspecialidad.Text = a.Especialidad;
                 numUDCiclo.Value = a.Ciclo;
                 txtCorreo.Text = a.Correo;
                 txtObservaciones.Text = a.Observaciones;
