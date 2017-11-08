@@ -64,6 +64,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelarConsejero = new System.Windows.Forms.Button();
             this.btnAgregarConsejero = new System.Windows.Forms.Button();
+            this.btnEliminarConsejero = new System.Windows.Forms.Button();
             this.grpPerfilUniversitario.SuspendLayout();
             this.grpPersonal.SuspendLayout();
             this.menuAconsejadosPrincipal.SuspendLayout();
@@ -249,6 +250,7 @@
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             this.guardarToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
@@ -449,11 +451,23 @@
             this.btnAgregarConsejero.UseVisualStyleBackColor = true;
             this.btnAgregarConsejero.Click += new System.EventHandler(this.btnAgregarConsejero_Click);
             // 
+            // btnEliminarConsejero
+            // 
+            this.btnEliminarConsejero.Enabled = false;
+            this.btnEliminarConsejero.Location = new System.Drawing.Point(41, 784);
+            this.btnEliminarConsejero.Name = "btnEliminarConsejero";
+            this.btnEliminarConsejero.Size = new System.Drawing.Size(93, 37);
+            this.btnEliminarConsejero.TabIndex = 19;
+            this.btnEliminarConsejero.Text = "Eliminar";
+            this.btnEliminarConsejero.UseVisualStyleBackColor = true;
+            this.btnEliminarConsejero.Click += new System.EventHandler(this.btnEliminarConsejero_Click);
+            // 
             // frmAdministrarConsejeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 869);
+            this.Controls.Add(this.btnEliminarConsejero);
             this.Controls.Add(this.btnCancelarConsejero);
             this.Controls.Add(this.btnAgregarConsejero);
             this.Controls.Add(this.groupBox1);
@@ -514,5 +528,6 @@
         private System.Windows.Forms.Button btnAgregarConsejero;
         private System.Windows.Forms.TextBox txtEspecialidad;
         private System.Windows.Forms.TextBox txtGradoConsej;
+        private System.Windows.Forms.Button btnEliminarConsejero;
     }
 }

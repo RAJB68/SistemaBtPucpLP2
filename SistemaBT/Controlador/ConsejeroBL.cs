@@ -27,9 +27,15 @@ namespace Controlador
         {
             return consejeroDataAccess.leerConsejeros();
         }
+        public bool modificarConsejero(Consejero c)
+        {
+            return consejeroDataAccess.modificarConsejero(c);
+        }
 
-
-
+        public bool eliminarConsejero(int codConsejero)
+        {
+            return consejeroDataAccess.elimnarConsejero(codConsejero);
+        }
 
     }
 }
