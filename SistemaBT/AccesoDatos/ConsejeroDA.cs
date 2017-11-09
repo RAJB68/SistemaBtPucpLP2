@@ -26,7 +26,7 @@ namespace AccesoDatos
             password = "wWVyTf4lAXvjlZlC";
             string connectionString;
             connectionString = "SERVER = " + servidor + "; " + "DATABASE = " + 
-                                bd + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+                                bd + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";Convert Zero Datetime=True";
             conexion = new MySqlConnection(connectionString);
         }
         public bool AbrirConexion()
@@ -120,7 +120,9 @@ namespace AccesoDatos
                     Consejero c = new Consejero(); ;
                     c.Codigo = dr.GetInt32("IdConsejero");
                     c.NombreCompleto=dr.GetString("NombreCompleto");
-                    c.FechaNacimiento = dr.GetDateTime("FechaNacimiento");
+                   
+                      c.FechaNacimiento=dr.GetDateTime("FechaNacimiento");
+                    
                     c.Especialidad = dr.GetString("Especialidad");
                     c.Grado = dr.GetString("Grado");
                     c.Telefono = dr.GetInt32("Telefono");
@@ -150,6 +152,68 @@ namespace AccesoDatos
 
             return consejeros;
 
+
+        }
+
+        public bool elimnarConsejero(int codConsej)
+        {
+
+            if (AbrirConexion())
+            {
+                MySqlCommand cmd = conexion.CreateCommand();
+                cmd.CommandText = "ELIMINAR_CONSEJERO";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("_CODIGO", codConsej);
+
+                cmd.ExecuteNonQuery();
+
+
+
+
+
+                CerrarConexion();
+                return true;
+            }
+            return false;
+        }
+
+        public bool modificarConsejero(Consejero c)
+        {
+            if (AbrirConexion())
+            {
+                MySqlCommand cmd = conexion.CreateCommand();
+                cmd.CommandText = "MODIFICAR_CONSEJERO";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+
+                cmd.Parameters.AddWithValue("_CODIGO", c.Codigo);
+                cmd.Parameters.AddWithValue("_NOMBRE", c.NombreCompleto);
+                cmd.Parameters.AddWithValue("_FECHA_NAC", c.FechaNacimiento.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("_TELEFONO", c.Telefono);
+                cmd.Parameters.AddWithValue("_DIRECCION", c.Direccion);
+                cmd.Parameters.AddWithValue("_ESPECIALIDAD", c.Especialidad);
+                cmd.Parameters.AddWithValue("_GRADO", c.Grado);
+                cmd.Parameters.AddWithValue("_CORREO", c.Correo);
+                cmd.Parameters.AddWithValue("_EMPRESA",c.Empresa);
+                cmd.Parameters.AddWithValue("_SECTOR", c.Sector);
+                cmd.Parameters.AddWithValue("_CARGO", c.Cargo);
+                cmd.Parameters.AddWithValue("_AREASINTERES", c.AreasInteres1);
+                cmd.Parameters.AddWithValue("_OBSERVACIONES", c.Observaciones);
+
+                cmd.ExecuteNonQuery();
+
+
+
+
+
+                CerrarConexion();
+
+                return true;
+
+            }
+            return false;
 
         }
 

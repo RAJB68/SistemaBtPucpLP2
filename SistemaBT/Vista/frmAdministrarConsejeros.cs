@@ -39,6 +39,7 @@ namespace Vista
             }
             consejero = f.ConsejeroSeleccionado;
             btnAgregarConsejero.Enabled = false;
+            btnEliminarConsejero.Enabled = true;
             guardarToolStripMenuItem.Enabled = true;
 
             txtNombreConsejero.Text = consejero.NombreCompleto;
@@ -52,11 +53,9 @@ namespace Vista
             txtSectorConsej.Text = consejero.Sector;
             txtTelefConsej.Text = consejero.Telefono.ToString();
 
-            try
-            {
-                dtpFechaNacConsej.Text = consejero.FechaNacimiento.ToString();
-            }
-            catch (Exception ex) { }
+            
+                dtpFechaNacConsej.Text = consejero.FechaNacimiento.ToString("yyyy-MM-dd");
+            
             txtEspecialidad.Text = consejero.Especialidad;
             txtGradoConsej.Text = consejero.Grado;
 
@@ -65,13 +64,16 @@ namespace Vista
             txtNombreConsejero.Enabled = true;
             txtAreasIntConsej.Enabled = true;
             txtCargoConsej.Enabled = true;
-            txtCodigoConsej.Enabled = true;
             txtCorreoConsej.Enabled = true;
             txtDireccConsej.Enabled = true;
             txtEmpresaConsej.Enabled = true;
             txtObsConsej.Enabled = true;
             txtSectorConsej.Enabled = true;
             txtTelefConsej.Enabled = true;
+            dtpFechaNacConsej.Enabled = true;
+            txtEspecialidad.Enabled = true;
+            txtGradoConsej.Enabled = true;
+
 
         }
 
@@ -156,6 +158,38 @@ namespace Vista
         private void frmAdministrarConsejeros_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consejero con = new Consejero();
+            con.NombreCompleto = txtNombreConsejero.Text;
+            con.AreasInteres1 = txtAreasIntConsej.Text;
+            con.Especialidad = txtEspecialidad.Text;
+            con.Grado = txtGradoConsej.Text;
+            con.Cargo = txtCargoConsej.Text;
+            con.Codigo = Int32.Parse(txtCodigoConsej.Text);
+            con.Correo = txtCorreoConsej.Text;
+            con.Direccion = txtDireccConsej.Text;
+            con.Empresa = txtEmpresaConsej.Text;
+            con.Observaciones = txtObsConsej.Text;
+            con.Sector = txtSectorConsej.Text;
+            con.Telefono = Int32.Parse(txtTelefConsej.Text);
+            con.FechaNacimiento = DateTime.Parse(dtpFechaNacConsej.Text);
+
+            if (LogNegConsejero.modificarConsejero(con))
+            {
+                MessageBox.Show("Consejero Modificado con Exito");
+            }
+        }
+
+        private void btnEliminarConsejero_Click(object sender, EventArgs e)
+        {
+            if (LogNegConsejero.eliminarConsejero(Int32.Parse(txtCodigoConsej.Text)))
+            {
+                MessageBox.Show("Consejero Eliminado");
+            }
+            
         }
     }
 }
