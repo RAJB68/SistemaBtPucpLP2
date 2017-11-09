@@ -69,7 +69,7 @@ namespace AccesoDatos
         public BindingList<Actividad> listarActividades(int codConsejero)
         {
             BindingList<Actividad> lista = new BindingList<Actividad>();
-            string query = "SELECT * FROM Actividad";
+            string query = "SELECT * FROM Actividad WHERE IdConsejero = " + codConsejero;
             if (this.AbrirConexion())
             {
                 MySqlCommand cmd = conexion.CreateCommand();
