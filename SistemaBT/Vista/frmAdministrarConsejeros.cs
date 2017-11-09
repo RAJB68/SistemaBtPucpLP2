@@ -74,6 +74,7 @@ namespace Vista
             txtEspecialidad.Enabled = true;
             txtGradoConsej.Enabled = true;
 
+            txtCodigoConsej.Enabled = false;
 
         }
 
@@ -119,6 +120,7 @@ namespace Vista
             txtEspecialidad.Text = "";
             txtGradoConsej.Text = "";
 
+            btnAgregarConsejero.Enabled = true;
             guardarToolStripMenuItem.Enabled = true;
         }
 
