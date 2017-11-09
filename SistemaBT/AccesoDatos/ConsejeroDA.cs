@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modelo;
-using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.ComponentModel;
+using MySql.Data.MySqlClient;
 
 namespace AccesoDatos
 {
@@ -66,18 +66,36 @@ namespace AccesoDatos
 
         public bool DAregistrarConsejero(Consejero c)
         {
-            string query = "INSERT INTO Consejero(IdConsejero, NombreCompleto, FechaNacimiento, Especialidad, " +
-                                                  "Grado, Telefono, Correo, Direccion, Empresa, Sector, " +
-                                                  "Cargo, AreasInteres, FechaIngreso, Observaciones, Estado) " +
-                           "VALUES('"+c.Codigo+"','"+c.NombreCompleto+"','"+c.FechaNacimiento.ToString("yyyy-MM-dd")+"','"+c.Especialidad+
-                           "','"+c.Grado+ "','"+c.Telefono+ "','"+c.Correo+ "','"+c.Direccion+ "','"+c.Empresa+
-                           "','"+c.Sector+ "','"+c.Cargo+ "','"+c.AreasInteres1+ "','"+c.FechaIngreso.ToString("yyyy-MM-dd") +
-                           "','"+c.Observaciones+"','"+c.Estado+ "')";
 
             if (this.AbrirConexion())
             {
-                MySqlCommand cmd = new MySqlCommand(query, conexion);
-                cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = "insertarConsejero";
+                cmd.CommandType= System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("_idConsejero", c.Codigo);
+                cmd.Parameters.AddWithValue("_nombre", c.NombreCompleto);
+                cmd.Parameters.AddWithValue("_fechaNac", c.FechaNacimiento);
+                cmd.Parameters.AddWithValue("_especialidad", c.Especialidad);
+                cmd.Parameters.AddWithValue("_grado", c.Grado);
+                cmd.Parameters.AddWithValue("_tef", c.Telefono);
+                cmd.Parameters.AddWithValue("_correo", c.Correo);
+                cmd.Parameters.AddWithValue("_direccion", c.Direccion);
+                cmd.Parameters.AddWithValue("_empresa", c.Empresa);
+                cmd.Parameters.AddWithValue("_sector", c.Sector);
+                cmd.Parameters.AddWithValue("_cargo", c.Cargo);
+                cmd.Parameters.AddWithValue("_areaInt", c.AreasInteres1);
+                cmd.Parameters.AddWithValue("_fechaIN", c.FechaIngreso);
+                cmd.Parameters.AddWithValue("_obs", c.Observaciones);
+                cmd.Parameters.AddWithValue("_estado", c.Estado);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
                 this.CerrarConexion();
             }
             return true;

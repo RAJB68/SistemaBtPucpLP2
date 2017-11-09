@@ -34,7 +34,13 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.tabActividad = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtDedicatoria = new System.Windows.Forms.TextBox();
+            this.txtLugar = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtResultado = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,13 +48,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtLugar = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.btAgregar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDestinatario = new System.Windows.Forms.TextBox();
             this.tabActividad.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -90,37 +93,87 @@
             // 
             this.tabActividad.Controls.Add(this.tabPage1);
             this.tabActividad.Controls.Add(this.tabPage2);
-            this.tabActividad.Location = new System.Drawing.Point(12, 215);
+            this.tabActividad.Location = new System.Drawing.Point(12, 269);
             this.tabActividad.Name = "tabActividad";
             this.tabActividad.SelectedIndex = 0;
-            this.tabActividad.Size = new System.Drawing.Size(643, 272);
+            this.tabActividad.Size = new System.Drawing.Size(643, 218);
             this.tabActividad.TabIndex = 9;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.txtDedicatoria);
             this.tabPage1.Controls.Add(this.txtLugar);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(635, 243);
+            this.tabPage1.Size = new System.Drawing.Size(635, 189);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cumpleaños";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtDedicatoria
+            // 
+            this.txtDedicatoria.Location = new System.Drawing.Point(162, 54);
+            this.txtDedicatoria.Multiline = true;
+            this.txtDedicatoria.Name = "txtDedicatoria";
+            this.txtDedicatoria.Size = new System.Drawing.Size(467, 124);
+            this.txtDedicatoria.TabIndex = 18;
+            // 
+            // txtLugar
+            // 
+            this.txtLugar.Location = new System.Drawing.Point(162, 10);
+            this.txtLugar.Name = "txtLugar";
+            this.txtLugar.Size = new System.Drawing.Size(467, 22);
+            this.txtLugar.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 54);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 17);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Dedicatoria:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Lugar de Celebración:";
+            // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.txtResultado);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(635, 243);
+            this.tabPage2.Size = new System.Drawing.Size(635, 189);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Presentacion";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtResultado
+            // 
+            this.txtResultado.Location = new System.Drawing.Point(212, 25);
+            this.txtResultado.Multiline = true;
+            this.txtResultado.Name = "txtResultado";
+            this.txtResultado.Size = new System.Drawing.Size(417, 135);
+            this.txtResultado.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(198, 17);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Resultado de la Presentacion:";
             // 
             // label3
             // 
@@ -180,70 +233,49 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Descripcion:";
             // 
-            // textBox1
+            // txtDescripcion
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 138);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(539, 71);
-            this.textBox1.TabIndex = 17;
+            this.txtDescripcion.Location = new System.Drawing.Point(112, 138);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(539, 71);
+            this.txtDescripcion.TabIndex = 17;
             // 
-            // label7
+            // btAgregar
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Lugar de Celebración:";
+            this.btAgregar.Location = new System.Drawing.Point(575, 494);
+            this.btAgregar.Name = "btAgregar";
+            this.btAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btAgregar.TabIndex = 18;
+            this.btAgregar.Text = "Agregar";
+            this.btAgregar.UseVisualStyleBackColor = true;
+            this.btAgregar.Click += new System.EventHandler(this.btAgregar_Click);
             // 
-            // label8
+            // label10
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 113);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 17);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Dedicatoria:";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 226);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 17);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Destinatario:";
             // 
-            // txtLugar
+            // txtDestinatario
             // 
-            this.txtLugar.Location = new System.Drawing.Point(162, 43);
-            this.txtLugar.Name = "txtLugar";
-            this.txtLugar.Size = new System.Drawing.Size(467, 22);
-            this.txtLugar.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(162, 113);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(467, 124);
-            this.textBox2.TabIndex = 18;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 100);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(198, 17);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Resultado de la Presentacion:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(212, 100);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(417, 68);
-            this.textBox3.TabIndex = 1;
+            this.txtDestinatario.Location = new System.Drawing.Point(113, 223);
+            this.txtDestinatario.Name = "txtDestinatario";
+            this.txtDestinatario.Size = new System.Drawing.Size(537, 22);
+            this.txtDestinatario.TabIndex = 20;
             // 
             // frmAgregarActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 499);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(667, 529);
+            this.Controls.Add(this.txtDestinatario);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.btAgregar);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.label5);
@@ -285,12 +317,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.TextBox txtDedicatoria;
         private System.Windows.Forms.TextBox txtLugar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtResultado;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btAgregar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtDestinatario;
     }
 }

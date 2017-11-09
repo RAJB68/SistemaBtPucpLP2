@@ -147,11 +147,12 @@ namespace Vista
             consejero.Observaciones = txtObsConsej.Text;
             consejero.Sector = txtSectorConsej.Text;
             consejero.Telefono = Int32.Parse(txtTelefConsej.Text);
-            consejero.FechaNacimiento = DateTime.Parse(dtpFechaNacConsej.Text);
+            consejero.Especialidad = txtEspecialidad.Text;
+            consejero.Grado = txtGradoConsej.Text;
+            consejero.Estado = "Habilitado";
             LogNegConsejero.registrarConsejero(this.consejero);
-
-
-           MessageBox.Show("Consejero Agregado");
+            
+            MessageBox.Show("Consejero Agregado");
         }
 
         private void frmAdministrarConsejeros_Load(object sender, EventArgs e)
