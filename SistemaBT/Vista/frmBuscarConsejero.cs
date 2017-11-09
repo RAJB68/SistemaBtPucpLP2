@@ -32,7 +32,6 @@ namespace Vista
         {
             //Seleccionar el consejero
             _consejeroSeleccionado = (Consejero)dgvConsejeros.CurrentRow.DataBoundItem;
-
             this.DialogResult = DialogResult.OK;
         }
     }

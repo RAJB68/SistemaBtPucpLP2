@@ -30,15 +30,16 @@
         {
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.btBuscarConsejero = new System.Windows.Forms.Button();
-            this.btBuscarAconsejado = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btEliminarActividad = new System.Windows.Forms.Button();
             this.btModificarActividad = new System.Windows.Forms.Button();
             this.btAgregarActividad = new System.Windows.Forms.Button();
             this.dgvActividades = new System.Windows.Forms.DataGridView();
+            this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaProgramada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btActualizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +48,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(101, 40);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(343, 22);
+            this.txtNombre.Size = new System.Drawing.Size(375, 22);
             this.txtNombre.TabIndex = 1;
             // 
             // label1
@@ -59,40 +60,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Código PUCP:";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(135, 71);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(309, 22);
-            this.txtCodigo.TabIndex = 4;
-            // 
             // btBuscarConsejero
             // 
-            this.btBuscarConsejero.Location = new System.Drawing.Point(462, 37);
+            this.btBuscarConsejero.Location = new System.Drawing.Point(482, 37);
             this.btBuscarConsejero.Name = "btBuscarConsejero";
             this.btBuscarConsejero.Size = new System.Drawing.Size(145, 28);
             this.btBuscarConsejero.TabIndex = 5;
             this.btBuscarConsejero.Text = "Buscar Consejero";
             this.btBuscarConsejero.UseVisualStyleBackColor = true;
             this.btBuscarConsejero.Click += new System.EventHandler(this.btBuscarConsejero_Click);
-            // 
-            // btBuscarAconsejado
-            // 
-            this.btBuscarAconsejado.Location = new System.Drawing.Point(462, 68);
-            this.btBuscarAconsejado.Name = "btBuscarAconsejado";
-            this.btBuscarAconsejado.Size = new System.Drawing.Size(145, 28);
-            this.btBuscarAconsejado.TabIndex = 6;
-            this.btBuscarAconsejado.Text = "Buscar Aconsejado";
-            this.btBuscarAconsejado.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -115,6 +91,7 @@
             this.btEliminarActividad.TabIndex = 3;
             this.btEliminarActividad.Text = "Eliminar";
             this.btEliminarActividad.UseVisualStyleBackColor = true;
+            this.btEliminarActividad.Click += new System.EventHandler(this.btEliminarActividad_Click);
             // 
             // btModificarActividad
             // 
@@ -139,22 +116,53 @@
             // dgvActividades
             // 
             this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvActividades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Titulo,
+            this.Descripcion,
+            this.FechaProgramada});
             this.dgvActividades.Location = new System.Drawing.Point(7, 22);
             this.dgvActividades.Name = "dgvActividades";
             this.dgvActividades.RowTemplate.Height = 24;
             this.dgvActividades.Size = new System.Drawing.Size(608, 309);
             this.dgvActividades.TabIndex = 0;
             // 
+            // Titulo
+            // 
+            this.Titulo.DataPropertyName = "Titulo";
+            this.Titulo.HeaderText = "Titulo";
+            this.Titulo.Name = "Titulo";
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.Width = 200;
+            // 
+            // FechaProgramada
+            // 
+            this.FechaProgramada.DataPropertyName = "FechaProgramada";
+            this.FechaProgramada.HeaderText = "Fecha Programada";
+            this.FechaProgramada.Name = "FechaProgramada";
+            // 
+            // btActualizar
+            // 
+            this.btActualizar.Location = new System.Drawing.Point(509, 86);
+            this.btActualizar.Name = "btActualizar";
+            this.btActualizar.Size = new System.Drawing.Size(118, 23);
+            this.btActualizar.TabIndex = 8;
+            this.btActualizar.Text = "Actualizar Tabla";
+            this.btActualizar.UseVisualStyleBackColor = true;
+            this.btActualizar.Click += new System.EventHandler(this.btActualizar_Click);
+            // 
             // frmAdministrarActividades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 518);
+            this.Controls.Add(this.btActualizar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btBuscarAconsejado);
             this.Controls.Add(this.btBuscarConsejero);
-            this.Controls.Add(this.txtCodigo);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombre);
             this.Name = "frmAdministrarActividades";
@@ -169,14 +177,15 @@
         #endregion
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button btBuscarConsejero;
-        private System.Windows.Forms.Button btBuscarAconsejado;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btEliminarActividad;
         private System.Windows.Forms.Button btModificarActividad;
         private System.Windows.Forms.Button btAgregarActividad;
         private System.Windows.Forms.DataGridView dgvActividades;
+        private System.Windows.Forms.Button btActualizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Titulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaProgramada;
     }
 }

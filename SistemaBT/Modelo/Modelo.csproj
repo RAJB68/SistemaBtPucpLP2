@@ -46,14 +46,12 @@
     <Compile Include="Correo.cs" />
     <Compile Include="Criterio.cs" />
     <Compile Include="CriterioXEncuesta.cs" />
-    <Compile Include="Cumpleaños.cs" />
     <Compile Include="Encuesta.cs" />
     <Compile Include="Evento.cs" />
     <Compile Include="InteraccionPresencial.cs" />
     <Compile Include="Llamada.cs" />
     <Compile Include="Match.cs" />
     <Compile Include="Pregunta.cs" />
-    <Compile Include="Presentacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

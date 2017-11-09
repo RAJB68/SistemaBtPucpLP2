@@ -22,14 +22,15 @@ namespace Vista
             InitializeComponent();
             aLogNeg = new AconsejadoBL();
             dgvAconsejados.AutoGenerateColumns = false;
-            dgvAconsejados.DataSource = aLogNeg.listarAconsejados();
+            BindingList<Aconsejado> aconsejados = aLogNeg.listarAconsejados();
+            dgvAconsejados.DataSource = aconsejados;
         }
 
         public Aconsejado AconsejadoSeleccionado { get => aconsejadoSeleccionado; set => aconsejadoSeleccionado = value; }
 
         private void btnSeleccionarAconsejado_Click(object sender, EventArgs e)
         {
-            aconsejadoSeleccionado = (Aconsejado)dgvAconsejados.CurrentRow.DataBoundItem;
+            aconsejadoSeleccionado = (Aconsejado) dgvAconsejados.CurrentRow.DataBoundItem;
             this.DialogResult = DialogResult.OK;
         }
     }

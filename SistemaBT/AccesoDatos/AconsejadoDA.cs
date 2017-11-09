@@ -41,7 +41,7 @@ namespace AccesoDatos
 
                 string insertar = "INSERT INTO Aconsejado (IdAconsejado,NombreCompleto,FechaNacimiento,Telefono,Correo,Direccion,Especialidad,Ciclo,Observaciones,Estado)" +
                                   "VALUES (" + a.Codigo.ToString() + ",'" + a.NombreCompleto + "','" + a.FechaNacimiento.ToString() + "'," + a.Telefono + ",'" + a.Correo + "','" + a.Direccion + "','" + a.Especialidad + "'," + a.Ciclo.ToString() + ",'" + a.Observaciones + "','" + a.Estado + "');";        //+
-                                  //"WHERE IdAconsejado NOT IN (SELECT IdAconsejado FROM Aconsejado WHERE IdAconsejado = " + a.Codigo.ToString() +");";
+                                                                                                                                                                                                                                                                                                                 //"WHERE IdAconsejado NOT IN (SELECT IdAconsejado FROM Aconsejado WHERE IdAconsejado = " + a.Codigo.ToString() +");";
 
                 cmd.Connection = conn;
                 cmd.CommandText = insertar;
@@ -114,21 +114,6 @@ namespace AccesoDatos
         public BindingList<Aconsejado> devolverLista()
         {
             BindingList<Aconsejado> lista = new BindingList<Aconsejado>();
-            //FileStream fs = new FileStream(ruta, FileMode.Open, FileAccess.Read);
-            //BinaryFormatter bf = new BinaryFormatter();
-            //while (true)
-            //{
-            //    try
-            //    {
-            //        Aconsejado a = (Aconsejado)bf.Deserialize(fs);
-            //        lista.Add(a);
-            //    } catch (Exception excep)
-            //    {
-            //        fs.Close();
-            //        break;
-            //    }
-            //}
-            //return lista;
 
             try
             {
@@ -161,7 +146,7 @@ namespace AccesoDatos
 
             } catch (Exception e)
             {
-                return null;
+                return lista;
             }
         }
     }
