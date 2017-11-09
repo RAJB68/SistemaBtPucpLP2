@@ -14,44 +14,43 @@ namespace AccesoDatos
     public class AconsejadoDA
     {
         private string ruta/*= "datosAconsejados.dat"*/;
+        MySqlConnection conn;
+        MySqlCommand cmd;
         public AconsejadoDA()
         {
-            
+            conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
+            cmd = new MySqlCommand();
         }
 
 
         public bool registrarAconsejado(Aconsejado a)
         {
-            //FileStream fs = new FileStream(ruta, FileMode.Append, FileAccess.Write);
-            //BinaryFormatter bf = new BinaryFormatter();
-            //try
-            //{
-            //    bf.Serialize(fs, a);
-            //    fs.Close();
-            //    return true;
-            //} catch (Exception excep)
-            //{
-            //    return false;
-            //}
             try
             {
-                MySqlConnection conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand();
-
-                string insertar = "INSERT INTO Aconsejado (IdAconsejado,NombreCompleto,FechaNacimiento,Telefono,Correo,Direccion,Especialidad,Ciclo,Observaciones,Estado)" +
-                                  "VALUES (" + a.Codigo.ToString() + ",'" + a.NombreCompleto + "','" + a.FechaNacimiento.ToString() + "'," + a.Telefono + ",'" + a.Correo + "','" + a.Direccion + "','" + a.Especialidad + "'," + a.Ciclo.ToString() + ",'" + a.Observaciones + "','" + a.Estado + "');";        //+
-                                  //"WHERE IdAconsejado NOT IN (SELECT IdAconsejado FROM Aconsejado WHERE IdAconsejado = " + a.Codigo.ToString() +");";
 
                 cmd.Connection = conn;
-                cmd.CommandText = insertar;
+                cmd.CommandText = "CREAR_ACONSEJADO";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("_Id", a.Codigo.ToString());
+                cmd.Parameters.AddWithValue("_nombre", a.NombreCompleto);
+                cmd.Parameters.AddWithValue("_fecha", a.FechaNacimiento);
+                cmd.Parameters.AddWithValue("_tel", a.Telefono.ToString());
+                cmd.Parameters.AddWithValue("_email", a.Correo);
+                cmd.Parameters.AddWithValue("_dir", a.Direccion);
+                cmd.Parameters.AddWithValue("_esp", a.Especialidad);
+                cmd.Parameters.AddWithValue("_ciclo", a.Ciclo.ToString());
+                cmd.Parameters.AddWithValue("_obser", a.Observaciones);
+                cmd.Parameters.AddWithValue("_estad", a.Estado);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
 
             } catch(Exception e)
             {
-                System.Console.WriteLine(e.Message);
+                //System.Console.WriteLine(e.Message);
                 return false;
             }
 
@@ -61,18 +60,23 @@ namespace AccesoDatos
         {
             try
             {
-                MySqlConnection conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand();
-
-                string modificar = "UPDATE Aconsejado SET (IdAconsejado,NombreCompleto,FechaNacimiento,Telefono,Correo,Direccion,Especialidad,Ciclo,Observaciones,Estado)" +
-                                  "values (" + a.Codigo.ToString() + "," + a.NombreCompleto + "," + a.FechaNacimiento.ToString() + "," + a.Telefono + "," + a.Correo + "," + a.Direccion + "," + a.Especialidad + "," + a.Ciclo.ToString() + "," + a.Observaciones + "," + a.Estado + ")" +
-                                  "WHERE NOT EXISTS (SELECT IdAconsejado FROM Aconsejado WHERE IdAconsejado = '" + a.Codigo.ToString() + "'); ";
-                /*FALTA ESPECIFICAR COMO REDACTAR LA SENTENCIA*/
-
 
                 cmd.Connection = conn;
-                cmd.CommandText = modificar;
+                cmd.CommandText = "MODIFICAR_ACONSEJADO";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("_Id", a.Codigo.ToString());
+                cmd.Parameters.AddWithValue("_nombre", a.NombreCompleto);
+                cmd.Parameters.AddWithValue("_fecha", a.FechaNacimiento);
+                cmd.Parameters.AddWithValue("_tel", a.Telefono.ToString());
+                cmd.Parameters.AddWithValue("_email", a.Correo);
+                cmd.Parameters.AddWithValue("_dir", a.Direccion);
+                cmd.Parameters.AddWithValue("_esp", a.Especialidad);
+                cmd.Parameters.AddWithValue("_cic", a.Ciclo.ToString());
+                cmd.Parameters.AddWithValue("_obser", a.Observaciones);
+                cmd.Parameters.AddWithValue("_estad", a.Estado);
+
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
@@ -88,18 +92,11 @@ namespace AccesoDatos
         {
             try
             {
-                MySqlConnection conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand();
-
-                string eliminar = "DELETE FROM Aconsejado SET (IdAconsejado,NombreCompleto,FechaNacimiento,Telefono,Correo,Direccion,Especialidad,Ciclo,Observaciones,Estado)" +
-                                  "values (" + a.Codigo.ToString() + "," + a.NombreCompleto + "," + a.FechaNacimiento.ToString() + "," + a.Telefono + "," + a.Correo + "," + a.Direccion + "," + a.Especialidad + "," + a.Ciclo.ToString() + "," + a.Observaciones + "," + a.Estado + ")" +
-                                  "WHERE NOT EXISTS (SELECT IdAconsejado FROM Aconsejado WHERE IdAconsejado = '" + a.Codigo.ToString() + "'); ";
-                /*FALTA ESPECIFICAR COMO REDACTAR LA SENTENCIA*/
 
 
                 cmd.Connection = conn;
-                cmd.CommandText = eliminar;
+                //cmd.CommandText = eliminar;
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
@@ -114,32 +111,14 @@ namespace AccesoDatos
         public BindingList<Aconsejado> devolverLista()
         {
             BindingList<Aconsejado> lista = new BindingList<Aconsejado>();
-            //FileStream fs = new FileStream(ruta, FileMode.Open, FileAccess.Read);
-            //BinaryFormatter bf = new BinaryFormatter();
-            //while (true)
-            //{
-            //    try
-            //    {
-            //        Aconsejado a = (Aconsejado)bf.Deserialize(fs);
-            //        lista.Add(a);
-            //    } catch (Exception excep)
-            //    {
-            //        fs.Close();
-            //        break;
-            //    }
-            //}
-            //return lista;
 
             try
             {
-                MySqlConnection conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand();
-
-                string query = "SELECT * from Aconsejado";
 
                 cmd.Connection = conn;
-                cmd.CommandText = query;
+                cmd.CommandText = "LISTAR_ACONSEJADOS";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -147,7 +126,7 @@ namespace AccesoDatos
                     Aconsejado a = new Aconsejado();
                     a.Codigo = Int32.Parse(reader.GetString("IdAconsejado"));
                     a.NombreCompleto = reader.GetString("NombreCompleto");
-                    a.FechaNacimiento = DateTime.Parse(reader.GetString("FechaNacimiento"));
+                    a.FechaNacimiento = reader.GetDateTime("FechaNacimiento");
                     a.Telefono = Int32.Parse(reader.GetString("Telefono"));
                     a.Correo = reader.GetString("Correo");
                     a.Direccion = reader.GetString("Direccion");
@@ -161,6 +140,7 @@ namespace AccesoDatos
 
             } catch (Exception e)
             {
+
                 return null;
             }
         }

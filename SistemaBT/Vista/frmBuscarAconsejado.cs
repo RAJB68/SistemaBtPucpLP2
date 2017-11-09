@@ -21,8 +21,9 @@ namespace Vista
         {
             InitializeComponent();
             aLogNeg = new AconsejadoBL();
+            BindingList<Aconsejado> aconsejados = aLogNeg.listarAconsejados();
             dgvAconsejados.AutoGenerateColumns = false;
-            dgvAconsejados.DataSource = aLogNeg.listarAconsejados();
+            dgvAconsejados.DataSource = aconsejados;
         }
 
         public Aconsejado AconsejadoSeleccionado { get => aconsejadoSeleccionado; set => aconsejadoSeleccionado = value; }

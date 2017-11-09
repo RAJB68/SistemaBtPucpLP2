@@ -30,16 +30,16 @@
         {
             this.dgvAconsejados = new System.Windows.Forms.DataGridView();
             this.btnSeleccionarAconsejado = new System.Windows.Forms.Button();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ciclo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAconsejados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,25 +49,25 @@
             this.dgvAconsejados.AllowUserToDeleteRows = false;
             this.dgvAconsejados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAconsejados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigo,
             this.Nombre,
+            this.FechaNac,
+            this.telefono,
             this.Correo,
             this.Direccion,
             this.Especialidad,
             this.Ciclo,
             this.Observaciones,
-            this.Estado,
-            this.codigo,
-            this.FechaNac,
-            this.telefono});
-            this.dgvAconsejados.Location = new System.Drawing.Point(13, 66);
+            this.Estado});
+            this.dgvAconsejados.Location = new System.Drawing.Point(13, 41);
             this.dgvAconsejados.Name = "dgvAconsejados";
             this.dgvAconsejados.ReadOnly = true;
-            this.dgvAconsejados.Size = new System.Drawing.Size(570, 331);
+            this.dgvAconsejados.Size = new System.Drawing.Size(570, 336);
             this.dgvAconsejados.TabIndex = 0;
             // 
             // btnSeleccionarAconsejado
             // 
-            this.btnSeleccionarAconsejado.Location = new System.Drawing.Point(507, 37);
+            this.btnSeleccionarAconsejado.Location = new System.Drawing.Point(508, 12);
             this.btnSeleccionarAconsejado.Name = "btnSeleccionarAconsejado";
             this.btnSeleccionarAconsejado.Size = new System.Drawing.Size(75, 23);
             this.btnSeleccionarAconsejado.TabIndex = 1;
@@ -75,11 +75,29 @@
             this.btnSeleccionarAconsejado.UseVisualStyleBackColor = true;
             this.btnSeleccionarAconsejado.Click += new System.EventHandler(this.btnSeleccionarAconsejado_Click);
             // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
+            // 
+            // FechaNac
+            // 
+            this.FechaNac.HeaderText = "Fecha de nacimiento";
+            this.FechaNac.Name = "FechaNac";
+            this.FechaNac.ReadOnly = true;
+            // 
+            // telefono
+            // 
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
             // 
             // Correo
             // 
@@ -117,29 +135,11 @@
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             // 
-            // codigo
-            // 
-            this.codigo.HeaderText = "Codigo";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // FechaNac
-            // 
-            this.FechaNac.HeaderText = "Fecha de nacimiento";
-            this.FechaNac.Name = "FechaNac";
-            this.FechaNac.ReadOnly = true;
-            // 
-            // telefono
-            // 
-            this.telefono.HeaderText = "Telefono";
-            this.telefono.Name = "telefono";
-            this.telefono.ReadOnly = true;
-            // 
             // frmBuscarAconsejado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 409);
+            this.ClientSize = new System.Drawing.Size(595, 389);
             this.Controls.Add(this.btnSeleccionarAconsejado);
             this.Controls.Add(this.dgvAconsejados);
             this.Name = "frmBuscarAconsejado";
@@ -153,15 +153,15 @@
 
         private System.Windows.Forms.DataGridView dgvAconsejados;
         private System.Windows.Forms.Button btnSeleccionarAconsejado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ciclo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observaciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
     }
 }

@@ -16,6 +16,7 @@ namespace Vista
     public partial class frmAdministrarAconsejados : Form
     {
         private Aconsejado a;
+
         private AconsejadoBL aLogicaNeg;
         //private EspecialidadBL eLogicaNeg; 
         public frmAdministrarAconsejados()
@@ -23,13 +24,6 @@ namespace Vista
             InitializeComponent();
             modificarEstado(estado.INICIO);
             aLogicaNeg = new AconsejadoBL();
-            //BindingList<Especialidad> listaEsp = new BindingList<Especialidad>();
-            //listaEsp = eLogicaNeg.devolverLista();
-            //cmbEspecialidad.ValueMember = "Nombre";
-            //foreach (Especialidad e in listaEsp)
-            //{
-            //    cmbEspecialidad.Items.Add(e);
-            //}
         }
 
         private void modificarEstado(estado e)   //faltan establecer detalles
@@ -98,30 +92,21 @@ namespace Vista
                 actividadToolStripMenuItem.Enabled = false;
             } else if (e == estado.MODIFICAR)    //manda a un formulario a buscar el aconsejado a modificar y llena los campos con el seleccionado
             {
-                //txtNombreCompleto.Text = a.NombreCompleto;
                 txtNombreCompleto.Enabled = true;
-                //txtNumeroTelefono.Text = a.Telefono.ToString();
                 txtNumeroTelefono.Enabled = true;
-                //ftpFechaNacimiento.Value = a.FechaNacimiento;
                 ftpFechaNacimiento.Enabled = true;
-                //txtDireccion.Text = a.Direccion;
                 txtDireccion.Enabled = true;
-                //txtCodAlumno.Text = a.Codigo.ToString();
-                txtCodAlumno.Enabled = true;
-                //txtCorreo.Text = a.Correo;
+                txtCodAlumno.Enabled = false;
                 txtCorreo.Enabled = true;
-                //txtObservaciones.Text = a.Observaciones;
                 txtObservaciones.Enabled = true;
                 btnAgregar.Enabled = false;
                 btnCancelar.Enabled = false;
-                // cmbEspecialidad.SelectedItem = ;        falta decidir como manejar la especialidad
                 txtEspecialidad.Enabled = true;
-                //numUDCiclo.Value = a.Ciclo;
                 numUDCiclo.Enabled = true;
 
-                nuevoToolStripMenuItem.Enabled = true;
+                nuevoToolStripMenuItem.Enabled = false;
                 modificarToolStripMenuItem.Enabled = true;
-                vincularToolStripMenuItem.Enabled = false;
+                vincularToolStripMenuItem.Enabled = true;
                 actividadToolStripMenuItem.Enabled = false;
             }
         }
@@ -139,7 +124,13 @@ namespace Vista
 
         private void vincularToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (txtCodAlumno.Text == "") { MessageBox.Show("No se eligió el alumno con el cual vincular", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
             /////REALIZAR MATCH
+            frmBuscarConsejero frmBA = new frmBuscarConsejero();
+            if (frmBA.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -151,14 +142,14 @@ namespace Vista
         {
             a = new Aconsejado();
 
-            if (txtNombreCompleto.Text == null)
+            if (txtNombreCompleto.Text == "")
             {
                 MessageBox.Show("No se ingresó nombre del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             } else a.NombreCompleto = txtNombreCompleto.Text;
 
             if (16 > (DateTime.Today.Year - ftpFechaNacimiento.Value.Year))
             {
-                MessageBox.Show("La fecha de nacimiento no ha sido elegida", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                MessageBox.Show("La fecha de nacimiento introducida no válida", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             } else a.FechaNacimiento = ftpFechaNacimiento.Value;
 
             try
@@ -169,7 +160,7 @@ namespace Vista
                 MessageBox.Show("No se ingresó número de teléfono correcto", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
 
-            if (txtDireccion.Text == null)
+            if (txtDireccion.Text == "")
             {
                 MessageBox.Show("No se ingresó dirección del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
@@ -183,24 +174,24 @@ namespace Vista
             {
                 MessageBox.Show("Codigo del Aconsejado mal ingresado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            if ((Int32.Parse(txtCodAlumno.Text) > 19900000) & (Int32.Parse(txtCodAlumno.Text) < (DateTime.Today.Year * 10000)))
+            if ((Int32.Parse(txtCodAlumno.Text) > 19900000) & (Int32.Parse(txtCodAlumno.Text) < ((DateTime.Today.Year+1) * 10000)))
                 a.Codigo = Int32.Parse(txtCodAlumno.Text);
             else { MessageBox.Show("Codigo ingresado no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
             //////////////ESPECIALIDAD
-            if (txtEspecialidad.Text == null)
+            if (txtEspecialidad.Text == "")
             {
                 MessageBox.Show("No se ingresó especialidad del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
             else a.Especialidad = txtEspecialidad.Text;
 
-            if (txtObservaciones.Text == null)
+            if (txtObservaciones.Text == "")
             {
                 MessageBox.Show("No existen observaciones del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
             }
             else a.Observaciones = txtObservaciones.Text;
 
-            if (txtCorreo.Text == null)
+            if (txtCorreo.Text == "")
             {
                 MessageBox.Show("No se ingresó correo del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
             }
@@ -245,6 +236,7 @@ namespace Vista
                 txtCorreo.Text = a.Correo;
                 txtObservaciones.Text = a.Observaciones;
             }
+
         }
 
         //private void btnModificar_Click(object sender, EventArgs e)
