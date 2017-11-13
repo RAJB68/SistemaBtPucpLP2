@@ -7,8 +7,9 @@ using System.ComponentModel;
 
 namespace Modelo
 {
-    class Match
+    public class Match
     {
+        /*
         private int idMatch;
         private DateTime fechaAsignacion;
         private DateTime fechaFin;
@@ -21,6 +22,26 @@ namespace Modelo
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public string Estado { get => estado; set => estado = value; }
         public BindingList<Encuesta> Encuestas { get => encuestas; set => encuestas = value; }
-        internal BindingList<Aconsejado> Aconsejados { get => aconsejados; set => aconsejados = value; }
+        public BindingList<Aconsejado> Aconsejados { get => aconsejados; set => aconsejados = value; }
+        */
+
+
+        ///*
+        private int idAconsejado; 
+        private int idConsejero;
+        private DateTime fechaAsignacion;
+        private DateTime fechaFin;
+        private string estado;
+        private BindingList<Encuesta> encuestas = new BindingList<Encuesta>();
+
+        public Match() { }
+
+        public int IdAconsejado { get => idAconsejado; set => idAconsejado = value; }
+        public int IdConsejero { get => idConsejero; set => idConsejero = value; }
+        public DateTime FechaAsignacion { get => fechaAsignacion; set => fechaAsignacion = value; }
+        public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
+        public string Estado { get => estado; set => estado = value; }
+        public BindingList<Encuesta> Encuestas { get => encuestas; set => encuestas = value; }
+        //*/
     }
 }

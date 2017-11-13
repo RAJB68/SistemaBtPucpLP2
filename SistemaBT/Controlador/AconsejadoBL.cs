@@ -28,5 +28,15 @@ namespace Controlador
             return accesoDatosAconsejado.devolverLista();
         }
 
+        public bool modificarAconsejado(Aconsejado a)
+        {
+            return accesoDatosAconsejado.modificarAconsejado(a);
+        }
+
+        public bool eliminarAconsejado(Aconsejado a)
+        {
+            return accesoDatosAconsejado.modificarAconsejado(a);
+        }
+
     }
 }

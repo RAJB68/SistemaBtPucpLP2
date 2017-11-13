@@ -43,6 +43,7 @@
     <Compile Include="AconsejadoBL.cs" />
     <Compile Include="ActividadesBL.cs" />
     <Compile Include="ConsejeroBL.cs" />
+    <Compile Include="MatchBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

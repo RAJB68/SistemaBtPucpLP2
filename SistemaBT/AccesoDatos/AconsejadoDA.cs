@@ -13,7 +13,6 @@ namespace AccesoDatos
 {
     public class AconsejadoDA
     {
-        private string ruta/*= "datosAconsejados.dat"*/;
         MySqlConnection conn;
         MySqlCommand cmd;
         public AconsejadoDA()
@@ -96,11 +95,12 @@ namespace AccesoDatos
 
 
                 cmd.Connection = conn;
-                //cmd.CommandText = eliminar;
+                cmd.CommandText = "ELIMINAR_ACONSEJADO";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("_id", a.Codigo.ToString());
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
-
             }
             catch (Exception e)
             {
@@ -140,7 +140,6 @@ namespace AccesoDatos
 
             } catch (Exception e)
             {
-
                 return null;
             }
         }

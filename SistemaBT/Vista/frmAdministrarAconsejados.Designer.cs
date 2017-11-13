@@ -45,6 +45,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grpPerfilUniversitario = new System.Windows.Forms.GroupBox();
+            this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.lblNumeroCiclo = new System.Windows.Forms.Label();
@@ -55,7 +56,10 @@
             this.lblCodigoAlumno = new System.Windows.Forms.Label();
             this.txtCodAlumno = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.txtEspecialidad = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.radHabilitado = new System.Windows.Forms.RadioButton();
+            this.radInhabilitado = new System.Windows.Forms.RadioButton();
             this.menuAconsejadosPrincipal.SuspendLayout();
             this.grpPersonal.SuspendLayout();
             this.grpPerfilUniversitario.SuspendLayout();
@@ -193,7 +197,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(386, 409);
+            this.btnAgregar.Location = new System.Drawing.Point(386, 436);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 3;
@@ -203,7 +207,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(467, 409);
+            this.btnCancelar.Location = new System.Drawing.Point(467, 436);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
@@ -213,6 +217,9 @@
             // 
             // grpPerfilUniversitario
             // 
+            this.grpPerfilUniversitario.Controls.Add(this.radInhabilitado);
+            this.grpPerfilUniversitario.Controls.Add(this.radHabilitado);
+            this.grpPerfilUniversitario.Controls.Add(this.lblEstado);
             this.grpPerfilUniversitario.Controls.Add(this.txtEspecialidad);
             this.grpPerfilUniversitario.Controls.Add(this.lblObservaciones);
             this.grpPerfilUniversitario.Controls.Add(this.txtObservaciones);
@@ -225,10 +232,17 @@
             this.grpPerfilUniversitario.Controls.Add(this.txtCodAlumno);
             this.grpPerfilUniversitario.Location = new System.Drawing.Point(13, 193);
             this.grpPerfilUniversitario.Name = "grpPerfilUniversitario";
-            this.grpPerfilUniversitario.Size = new System.Drawing.Size(529, 210);
+            this.grpPerfilUniversitario.Size = new System.Drawing.Size(529, 237);
             this.grpPerfilUniversitario.TabIndex = 5;
             this.grpPerfilUniversitario.TabStop = false;
             this.grpPerfilUniversitario.Text = "Perfil Universitario";
+            // 
+            // txtEspecialidad
+            // 
+            this.txtEspecialidad.Location = new System.Drawing.Point(311, 33);
+            this.txtEspecialidad.Name = "txtEspecialidad";
+            this.txtEspecialidad.Size = new System.Drawing.Size(199, 20);
+            this.txtEspecialidad.TabIndex = 14;
             // 
             // lblObservaciones
             // 
@@ -245,7 +259,7 @@
             this.txtObservaciones.Location = new System.Drawing.Point(98, 106);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(412, 78);
+            this.txtObservaciones.Size = new System.Drawing.Size(412, 102);
             this.txtObservaciones.TabIndex = 12;
             // 
             // lblNumeroCiclo
@@ -321,31 +335,68 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(13, 409);
+            this.btnModificar.Location = new System.Drawing.Point(13, 436);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // txtEspecialidad
+            // btnEliminar
             // 
-            this.txtEspecialidad.Location = new System.Drawing.Point(311, 33);
-            this.txtEspecialidad.Name = "txtEspecialidad";
-            this.txtEspecialidad.Size = new System.Drawing.Size(199, 20);
-            this.txtEspecialidad.TabIndex = 14;
+            this.btnEliminar.Location = new System.Drawing.Point(93, 436);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(14, 216);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(43, 13);
+            this.lblEstado.TabIndex = 15;
+            this.lblEstado.Text = "Estado:";
+            // 
+            // radHabilitado
+            // 
+            this.radHabilitado.AutoSize = true;
+            this.radHabilitado.Location = new System.Drawing.Point(98, 214);
+            this.radHabilitado.Name = "radHabilitado";
+            this.radHabilitado.Size = new System.Drawing.Size(72, 17);
+            this.radHabilitado.TabIndex = 16;
+            this.radHabilitado.TabStop = true;
+            this.radHabilitado.Text = "Habilitado";
+            this.radHabilitado.UseVisualStyleBackColor = true;
+            // 
+            // radInhabilitado
+            // 
+            this.radInhabilitado.AutoSize = true;
+            this.radInhabilitado.Location = new System.Drawing.Point(189, 214);
+            this.radInhabilitado.Name = "radInhabilitado";
+            this.radInhabilitado.Size = new System.Drawing.Size(79, 17);
+            this.radInhabilitado.TabIndex = 17;
+            this.radInhabilitado.TabStop = true;
+            this.radInhabilitado.Text = "Inhabilitado";
+            this.radInhabilitado.UseVisualStyleBackColor = true;
             // 
             // frmAdministrarAconsejados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 441);
+            this.ClientSize = new System.Drawing.Size(554, 471);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.grpPerfilUniversitario);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.grpPersonal);
             this.Controls.Add(this.menuAconsejadosPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuAconsejadosPrincipal;
             this.Name = "frmAdministrarAconsejados";
             this.Text = "Administración de aconsejados";
@@ -391,5 +442,9 @@
         private System.Windows.Forms.TextBox txtCodAlumno;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.TextBox txtEspecialidad;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.RadioButton radInhabilitado;
+        private System.Windows.Forms.RadioButton radHabilitado;
+        private System.Windows.Forms.Label lblEstado;
     }
 }

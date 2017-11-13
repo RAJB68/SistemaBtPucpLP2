@@ -12,18 +12,20 @@ using Controlador;
 
 namespace Vista
 {
-    public enum estado { INICIO, NUEVO, GUARDAR, MODIFICAR, VINCULAR, ACTIVIDAD }
+    public enum estado { INICIO, NUEVO, GUARDAR, MODIFICAR_ELIMINAR, VINCULAR, ACTIVIDAD }
     public partial class frmAdministrarAconsejados : Form
     {
         private Aconsejado a;
 
         private AconsejadoBL aLogicaNeg;
+        private MatchBL mLogicaNeg;
         //private EspecialidadBL eLogicaNeg; 
         public frmAdministrarAconsejados()
         {
             InitializeComponent();
             modificarEstado(estado.INICIO);
             aLogicaNeg = new AconsejadoBL();
+            mLogicaNeg = new MatchBL();
         }
 
         private void modificarEstado(estado e)   //faltan establecer detalles
@@ -49,6 +51,13 @@ namespace Vista
                 txtEspecialidad.Enabled = false;
                 numUDCiclo.Value = 1;
                 numUDCiclo.Enabled = false;
+                btnModificar.Enabled = false;
+                btnEliminar.Enabled = false;
+                radHabilitado.Visible = false;
+                radHabilitado.Enabled = false;
+                radInhabilitado.Visible = false;
+                radInhabilitado.Enabled = false;
+                lblEstado.Visible = false;
 
                 nuevoToolStripMenuItem.Enabled = true;
                 modificarToolStripMenuItem.Enabled = true;
@@ -90,7 +99,7 @@ namespace Vista
                 modificarToolStripMenuItem.Enabled = true;
                 vincularToolStripMenuItem.Enabled = false;
                 actividadToolStripMenuItem.Enabled = false;
-            } else if (e == estado.MODIFICAR)    //manda a un formulario a buscar el aconsejado a modificar y llena los campos con el seleccionado
+            } else if (e == estado.MODIFICAR_ELIMINAR)    //manda a un formulario a buscar el aconsejado a modificar y llena los campos con el seleccionado
             {
                 txtNombreCompleto.Enabled = true;
                 txtNumeroTelefono.Enabled = true;
@@ -100,9 +109,16 @@ namespace Vista
                 txtCorreo.Enabled = true;
                 txtObservaciones.Enabled = true;
                 btnAgregar.Enabled = false;
-                btnCancelar.Enabled = false;
+                btnCancelar.Enabled = true;
                 txtEspecialidad.Enabled = true;
                 numUDCiclo.Enabled = true;
+                btnModificar.Enabled = true;
+                btnEliminar.Enabled = true;
+                radHabilitado.Visible = true;
+                radHabilitado.Enabled = true;
+                radInhabilitado.Visible = true;
+                radInhabilitado.Enabled = true;
+                lblEstado.Visible = true;
 
                 nuevoToolStripMenuItem.Enabled = false;
                 modificarToolStripMenuItem.Enabled = true;
@@ -126,10 +142,15 @@ namespace Vista
         {
             if (txtCodAlumno.Text == "") { MessageBox.Show("No se eligió el alumno con el cual vincular", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
             /////REALIZAR MATCH
-            frmBuscarConsejero frmBA = new frmBuscarConsejero();
-            if (frmBA.ShowDialog() == DialogResult.OK)
+            frmBuscarConsejero frmBC = new frmBuscarConsejero();
+            if (frmBC.ShowDialog() == DialogResult.OK)
             {
-
+                Match m = new Match();
+                m.IdAconsejado = Int32.Parse(txtCodAlumno.Text);
+                m.IdConsejero = frmBC.ConsejeroSeleccionado.Codigo;
+                m.FechaAsignacion = DateTime.Today;
+                m.Estado = "Bueno";
+                mLogicaNeg.registrarMatch(m);
             }
         }
 
@@ -177,8 +198,7 @@ namespace Vista
             if ((Int32.Parse(txtCodAlumno.Text) > 19900000) & (Int32.Parse(txtCodAlumno.Text) < ((DateTime.Today.Year+1) * 10000)))
                 a.Codigo = Int32.Parse(txtCodAlumno.Text);
             else { MessageBox.Show("Codigo ingresado no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-
-            //////////////ESPECIALIDAD
+            
             if (txtEspecialidad.Text == "")
             {
                 MessageBox.Show("No se ingresó especialidad del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
@@ -224,7 +244,7 @@ namespace Vista
             frmBuscarAconsejado frmBA = new frmBuscarAconsejado();
             if (frmBA.ShowDialog() == DialogResult.OK)
             {
-                modificarEstado(estado.MODIFICAR);
+                modificarEstado(estado.MODIFICAR_ELIMINAR);
                 a = frmBA.AconsejadoSeleccionado;
                 txtNombreCompleto.Text = a.NombreCompleto;
                 ftpFechaNacimiento.Value = a.FechaNacimiento;
@@ -235,11 +255,74 @@ namespace Vista
                 numUDCiclo.Value = a.Ciclo;
                 txtCorreo.Text = a.Correo;
                 txtObservaciones.Text = a.Observaciones;
+                if (a.Estado == "Habilitado") radHabilitado.Checked = true;
+                else radInhabilitado.Checked = true;
             }
-
         }
 
-        //private void btnModificar_Click(object sender, EventArgs e)
-        //{ }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (txtNombreCompleto.Text == "")
+            {
+                MessageBox.Show("No se ingresó nombre del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            else a.NombreCompleto = txtNombreCompleto.Text;
+
+            if (16 > (DateTime.Today.Year - ftpFechaNacimiento.Value.Year))
+            {
+                MessageBox.Show("La fecha de nacimiento introducida no válida", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            else a.FechaNacimiento = ftpFechaNacimiento.Value;
+
+            try
+            {
+                a.Telefono = Int32.Parse(txtNumeroTelefono.Text);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("No se ingresó número de teléfono correcto", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+
+            if (txtDireccion.Text == "")
+            {
+                MessageBox.Show("No se ingresó dirección del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            else a.Direccion = txtDireccion.Text;
+
+            if (txtEspecialidad.Text == "")
+            {
+                MessageBox.Show("No se ingresó especialidad del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            else a.Especialidad = txtEspecialidad.Text;
+
+            if (txtObservaciones.Text == "")
+            {
+                MessageBox.Show("No existen observaciones del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
+            }
+            else a.Observaciones = txtObservaciones.Text;
+
+            if (txtCorreo.Text == "")
+            {
+                MessageBox.Show("No se ingresó correo del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
+            }
+            else a.Correo = txtCorreo.Text;
+
+            if (radHabilitado.Checked) a.Estado = "Habilitado";
+            else a.Estado = "Inhabilitado";
+
+            if ((numUDCiclo.Value > 0) & (numUDCiclo.Value <= 10)) a.Ciclo = (int)numUDCiclo.Value;
+            else { MessageBox.Show("Ciclo elegido no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+
+            aLogicaNeg.modificarAconsejado(a);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(txtCodAlumno.Text == "") { MessageBox.Show("Aconsejado no escogido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+            else
+            {
+                aLogicaNeg.eliminarAconsejado(a);
+            }
+        }
     }
 }
