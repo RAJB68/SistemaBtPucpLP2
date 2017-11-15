@@ -31,14 +31,15 @@
             this.btnAdminConsejeros = new System.Windows.Forms.Button();
             this.btnAdminAconsejados = new System.Windows.Forms.Button();
             this.btAdminActividades = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAdminConsejeros
             // 
-            this.btnAdminConsejeros.Location = new System.Drawing.Point(229, 216);
-            this.btnAdminConsejeros.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdminConsejeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminConsejeros.Location = new System.Drawing.Point(208, 404);
             this.btnAdminConsejeros.Name = "btnAdminConsejeros";
-            this.btnAdminConsejeros.Size = new System.Drawing.Size(106, 60);
+            this.btnAdminConsejeros.Size = new System.Drawing.Size(222, 134);
             this.btnAdminConsejeros.TabIndex = 0;
             this.btnAdminConsejeros.Text = "Administrar Consejeros";
             this.btnAdminConsejeros.UseVisualStyleBackColor = true;
@@ -46,10 +47,10 @@
             // 
             // btnAdminAconsejados
             // 
-            this.btnAdminAconsejados.Location = new System.Drawing.Point(480, 216);
-            this.btnAdminAconsejados.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdminAconsejados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminAconsejados.Location = new System.Drawing.Point(687, 403);
             this.btnAdminAconsejados.Name = "btnAdminAconsejados";
-            this.btnAdminAconsejados.Size = new System.Drawing.Size(106, 60);
+            this.btnAdminAconsejados.Size = new System.Drawing.Size(210, 137);
             this.btnAdminAconsejados.TabIndex = 1;
             this.btnAdminAconsejados.Text = "Administrar Aconsejados";
             this.btnAdminAconsejados.UseVisualStyleBackColor = true;
@@ -57,26 +58,39 @@
             // 
             // btAdminActividades
             // 
-            this.btAdminActividades.Location = new System.Drawing.Point(341, 273);
+            this.btAdminActividades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdminActividades.Location = new System.Drawing.Point(457, 404);
+            this.btAdminActividades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btAdminActividades.Name = "btAdminActividades";
-            this.btAdminActividades.Size = new System.Drawing.Size(134, 60);
+            this.btAdminActividades.Size = new System.Drawing.Size(205, 134);
             this.btAdminActividades.TabIndex = 2;
             this.btAdminActividades.Text = "Administrar Actividades";
             this.btAdminActividades.UseVisualStyleBackColor = true;
             this.btAdminActividades.Click += new System.EventHandler(this.btAdminActividades_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(213, 229);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(415, 42);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Bolsa de Trabajo PUCP";
+            // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 602);
+            this.ClientSize = new System.Drawing.Size(1260, 941);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btAdminActividades);
             this.Controls.Add(this.btnAdminAconsejados);
             this.Controls.Add(this.btnAdminConsejeros);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Principal";
             this.Text = "SIstemas De Consejerias - Bolsa de Trabajo PUCP";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -85,6 +99,7 @@
         private System.Windows.Forms.Button btnAdminConsejeros;
         private System.Windows.Forms.Button btnAdminAconsejados;
         private System.Windows.Forms.Button btAdminActividades;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -53,9 +53,9 @@ namespace Vista
             txtSectorConsej.Text = consejero.Sector;
             txtTelefConsej.Text = consejero.Telefono.ToString();
 
-            
-                dtpFechaNacConsej.Text = consejero.FechaNacimiento.ToString("yyyy-MM-dd");
-            
+
+            dtpFechaNacConsej.Text = consejero.FechaNacimiento.ToString("yyyy-MM-dd");
+
             txtEspecialidad.Text = consejero.Especialidad;
             txtGradoConsej.Text = consejero.Grado;
 
@@ -152,7 +152,13 @@ namespace Vista
             consejero.Especialidad = txtEspecialidad.Text;
             consejero.Grado = txtGradoConsej.Text;
             consejero.Estado = "Habilitado";
+
+            consejero.FechaNacimiento = DateTime.Parse(dtpFechaNacConsej.Text);
+            consejero.FechaIngreso = DateTime.Today;
             LogNegConsejero.registrarConsejero(this.consejero);
+
+            
+
             
             MessageBox.Show("Consejero Agregado");
         }

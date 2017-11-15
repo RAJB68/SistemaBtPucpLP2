@@ -31,10 +31,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.10.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.1.6\Assemblies\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data.Entity, Version=6.1.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Web, Version=6.1.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6">
+      <HintPath>..\..\..\..\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQL.Data.EntityFrameworkCore">
+      <HintPath>..\..\..\..\MySQL.Data.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQL.Data.EntityFrameworkCore.Design">
+      <HintPath>..\..\..\..\MySQL.Data.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.1.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\MySql.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />

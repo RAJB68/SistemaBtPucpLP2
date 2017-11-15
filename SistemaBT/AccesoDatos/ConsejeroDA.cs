@@ -26,7 +26,7 @@ namespace AccesoDatos
             password = "wWVyTf4lAXvjlZlC";
             string connectionString;
             connectionString = "SERVER = " + servidor + "; " + "DATABASE = " + 
-                                bd + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";Convert Zero Datetime=True";
+                                bd + ";" + "UID=" + uid + ";" + "PASSWORD=" + password ;
             conexion = new MySqlConnection(connectionString);
         }
         public bool AbrirConexion()
@@ -190,7 +190,7 @@ namespace AccesoDatos
 
                 cmd.Parameters.AddWithValue("_CODIGO", c.Codigo);
                 cmd.Parameters.AddWithValue("_NOMBRE", c.NombreCompleto);
-                cmd.Parameters.AddWithValue("_FECHA_NAC", c.FechaNacimiento.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("_FECHA_NAC", c.FechaNacimiento);
                 cmd.Parameters.AddWithValue("_TELEFONO", c.Telefono);
                 cmd.Parameters.AddWithValue("_DIRECCION", c.Direccion);
                 cmd.Parameters.AddWithValue("_ESPECIALIDAD", c.Especialidad);
