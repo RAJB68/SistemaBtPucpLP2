@@ -52,6 +52,7 @@
             this.btAgregar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDestinatario = new System.Windows.Forms.TextBox();
+            this.btCancelar = new System.Windows.Forms.Button();
             this.tabActividad.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -116,6 +117,7 @@
             // txtDedicatoria
             // 
             this.txtDedicatoria.Location = new System.Drawing.Point(162, 54);
+            this.txtDedicatoria.MaxLength = 100;
             this.txtDedicatoria.Multiline = true;
             this.txtDedicatoria.Name = "txtDedicatoria";
             this.txtDedicatoria.Size = new System.Drawing.Size(467, 124);
@@ -124,6 +126,7 @@
             // txtLugar
             // 
             this.txtLugar.Location = new System.Drawing.Point(162, 10);
+            this.txtLugar.MaxLength = 50;
             this.txtLugar.Name = "txtLugar";
             this.txtLugar.Size = new System.Drawing.Size(467, 22);
             this.txtLugar.TabIndex = 2;
@@ -161,6 +164,7 @@
             // txtResultado
             // 
             this.txtResultado.Location = new System.Drawing.Point(212, 25);
+            this.txtResultado.MaxLength = 100;
             this.txtResultado.Multiline = true;
             this.txtResultado.Name = "txtResultado";
             this.txtResultado.Size = new System.Drawing.Size(417, 135);
@@ -187,6 +191,7 @@
             // txtTitulo
             // 
             this.txtTitulo.Location = new System.Drawing.Point(166, 71);
+            this.txtTitulo.MaxLength = 50;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(485, 22);
             this.txtTitulo.TabIndex = 11;
@@ -218,11 +223,13 @@
             // 
             // cbEstado
             // 
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(435, 104);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(216, 24);
             this.cbEstado.TabIndex = 15;
+            this.cbEstado.SelectedIndexChanged += new System.EventHandler(this.cbEstado_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -236,6 +243,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(112, 138);
+            this.txtDescripcion.MaxLength = 100;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(539, 71);
@@ -243,11 +251,11 @@
             // 
             // btAgregar
             // 
-            this.btAgregar.Location = new System.Drawing.Point(575, 494);
+            this.btAgregar.Location = new System.Drawing.Point(469, 493);
             this.btAgregar.Name = "btAgregar";
-            this.btAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btAgregar.Size = new System.Drawing.Size(80, 30);
             this.btAgregar.TabIndex = 18;
-            this.btAgregar.Text = "Agregar";
+            this.btAgregar.Text = "Guardar";
             this.btAgregar.UseVisualStyleBackColor = true;
             this.btAgregar.Click += new System.EventHandler(this.btAgregar_Click);
             // 
@@ -263,15 +271,27 @@
             // txtDestinatario
             // 
             this.txtDestinatario.Location = new System.Drawing.Point(113, 223);
+            this.txtDestinatario.MaxLength = 100;
             this.txtDestinatario.Name = "txtDestinatario";
             this.txtDestinatario.Size = new System.Drawing.Size(537, 22);
             this.txtDestinatario.TabIndex = 20;
+            // 
+            // btCancelar
+            // 
+            this.btCancelar.Location = new System.Drawing.Point(568, 493);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(83, 29);
+            this.btCancelar.TabIndex = 21;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // frmAgregarActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 529);
+            this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.txtDestinatario);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btAgregar);
@@ -327,5 +347,6 @@
         private System.Windows.Forms.Button btAgregar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDestinatario;
+        private System.Windows.Forms.Button btCancelar;
     }
 }

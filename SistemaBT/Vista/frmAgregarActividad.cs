@@ -19,6 +19,24 @@ namespace Vista
         public int codConsejero = 0;
         public string nombreConsejero="";
 
+        public void cargarActividad(Actividad a)
+        {
+            if (a.TipoActividad == "Cumpleanios")
+            {
+                this.txtDedicatoria.Text = a.Comentario;
+                this.tabActividad.SelectTab(0);
+            }
+            if (a.TipoActividad == "Presentacion")
+            {
+                this.txtResultado.Text = a.Comentario;
+                this.tabActividad.SelectTab(1);
+            }
+            this.txtTitulo.Text = a.Titulo;
+            this.txtDestinatario.Text = a.Destinatario;
+            this.txtDescripcion.Text = a.Descripcion;
+            this.dtpFechaProg.Value = a.FechaProgramada;
+            this.cbEstado.Text = a.Estado;
+        }
         public frmAgregarActividad(int codConsej, string nombreConsej)
         {
             InitializeComponent();
@@ -38,7 +56,7 @@ namespace Vista
         private void btAgregar_Click(object sender, EventArgs e)
         {
 
-            if (this.txtLugar.Text != "")
+            if (this.tabActividad.SelectedIndex == 0)
             {
                 actividad.TipoActividad = "Cumpleanios";
                 actividad.Comentario = this.txtDedicatoria.Text;
@@ -57,6 +75,33 @@ namespace Vista
             actividad.Estado = this.cbEstado.Text;
             LogNegActividades.agregarActividad(codConsejero,actividad);
             DialogResult = DialogResult.OK;
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+        private void cbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cbEstado.Text == "Programado")
+            {
+                DateTime d = this.dtpFechaProg.Value;
+                if (d < DateTime.Today)
+                {
+                    MessageBox.Show("Cambiar la fecha de la actividad a una fecha futura");
+                    this.cbEstado.Text = "Realizado";
+                }
+            }
+            if (this.cbEstado.Text == "Realizado")
+            {
+                DateTime d = this.dtpFechaProg.Value;
+                if (d > DateTime.Today)
+                {
+                    MessageBox.Show("Cambiar la fecha de la actividad a una fecha pasada");
+                    this.cbEstado.Text = "Programado";
+                }
+            }
         }
     }
 }
