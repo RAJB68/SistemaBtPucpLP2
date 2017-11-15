@@ -39,10 +39,10 @@
             // 
             // btnSeleccionarConsejero
             // 
-            this.btnSeleccionarConsejero.Location = new System.Drawing.Point(695, 38);
+            this.btnSeleccionarConsejero.Location = new System.Drawing.Point(694, 37);
             this.btnSeleccionarConsejero.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeleccionarConsejero.Name = "btnSeleccionarConsejero";
-            this.btnSeleccionarConsejero.Size = new System.Drawing.Size(91, 25);
+            this.btnSeleccionarConsejero.Size = new System.Drawing.Size(103, 40);
             this.btnSeleccionarConsejero.TabIndex = 0;
             this.btnSeleccionarConsejero.Text = "Seleccionar";
             this.btnSeleccionarConsejero.UseVisualStyleBackColor = true;

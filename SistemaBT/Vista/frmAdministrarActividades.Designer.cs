@@ -122,6 +122,7 @@
             this.FechaProgramada});
             this.dgvActividades.Location = new System.Drawing.Point(7, 22);
             this.dgvActividades.Name = "dgvActividades";
+            this.dgvActividades.ReadOnly = true;
             this.dgvActividades.RowTemplate.Height = 24;
             this.dgvActividades.Size = new System.Drawing.Size(608, 309);
             this.dgvActividades.TabIndex = 0;
@@ -131,12 +132,14 @@
             this.Titulo.DataPropertyName = "Titulo";
             this.Titulo.HeaderText = "Titulo";
             this.Titulo.Name = "Titulo";
+            this.Titulo.ReadOnly = true;
             // 
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "Descripcion";
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
             this.Descripcion.Width = 200;
             // 
             // FechaProgramada
@@ -144,6 +147,7 @@
             this.FechaProgramada.DataPropertyName = "FechaProgramada";
             this.FechaProgramada.HeaderText = "Fecha Programada";
             this.FechaProgramada.Name = "FechaProgramada";
+            this.FechaProgramada.ReadOnly = true;
             // 
             // btActualizar
             // 
