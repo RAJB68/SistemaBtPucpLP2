@@ -50,7 +50,7 @@
             this.btnAdminAconsejados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminAconsejados.Location = new System.Drawing.Point(687, 403);
             this.btnAdminAconsejados.Name = "btnAdminAconsejados";
-            this.btnAdminAconsejados.Size = new System.Drawing.Size(210, 137);
+            this.btnAdminAconsejados.Size = new System.Drawing.Size(264, 137);
             this.btnAdminAconsejados.TabIndex = 1;
             this.btnAdminAconsejados.Text = "Administrar Aconsejados";
             this.btnAdminAconsejados.UseVisualStyleBackColor = true;
