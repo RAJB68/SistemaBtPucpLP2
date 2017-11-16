@@ -45,6 +45,9 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grpPerfilUniversitario = new System.Windows.Forms.GroupBox();
+            this.radInhabilitado = new System.Windows.Forms.RadioButton();
+            this.radHabilitado = new System.Windows.Forms.RadioButton();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
@@ -57,9 +60,8 @@
             this.txtCodAlumno = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.radHabilitado = new System.Windows.Forms.RadioButton();
-            this.radInhabilitado = new System.Windows.Forms.RadioButton();
+            this.establecerMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAconsejadosPrincipal.SuspendLayout();
             this.grpPersonal.SuspendLayout();
             this.grpPerfilUniversitario.SuspendLayout();
@@ -96,6 +98,9 @@
             // 
             // vincularToolStripMenuItem
             // 
+            this.vincularToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.establecerMatchToolStripMenuItem,
+            this.verMatchesToolStripMenuItem});
             this.vincularToolStripMenuItem.Name = "vincularToolStripMenuItem";
             this.vincularToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.vincularToolStripMenuItem.Text = "Vincular";
@@ -237,6 +242,37 @@
             this.grpPerfilUniversitario.TabStop = false;
             this.grpPerfilUniversitario.Text = "Perfil Universitario";
             // 
+            // radInhabilitado
+            // 
+            this.radInhabilitado.AutoSize = true;
+            this.radInhabilitado.Location = new System.Drawing.Point(189, 214);
+            this.radInhabilitado.Name = "radInhabilitado";
+            this.radInhabilitado.Size = new System.Drawing.Size(79, 17);
+            this.radInhabilitado.TabIndex = 17;
+            this.radInhabilitado.TabStop = true;
+            this.radInhabilitado.Text = "Inhabilitado";
+            this.radInhabilitado.UseVisualStyleBackColor = true;
+            // 
+            // radHabilitado
+            // 
+            this.radHabilitado.AutoSize = true;
+            this.radHabilitado.Location = new System.Drawing.Point(98, 214);
+            this.radHabilitado.Name = "radHabilitado";
+            this.radHabilitado.Size = new System.Drawing.Size(72, 17);
+            this.radHabilitado.TabIndex = 16;
+            this.radHabilitado.TabStop = true;
+            this.radHabilitado.Text = "Habilitado";
+            this.radHabilitado.UseVisualStyleBackColor = true;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(14, 216);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(43, 13);
+            this.lblEstado.TabIndex = 15;
+            this.lblEstado.Text = "Estado:";
+            // 
             // txtEspecialidad
             // 
             this.txtEspecialidad.Location = new System.Drawing.Point(311, 33);
@@ -353,36 +389,19 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // lblEstado
+            // establecerMatchToolStripMenuItem
             // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(14, 216);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(43, 13);
-            this.lblEstado.TabIndex = 15;
-            this.lblEstado.Text = "Estado:";
+            this.establecerMatchToolStripMenuItem.Name = "establecerMatchToolStripMenuItem";
+            this.establecerMatchToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.establecerMatchToolStripMenuItem.Text = "Establecer Match";
+            this.establecerMatchToolStripMenuItem.Click += new System.EventHandler(this.establecerMatchToolStripMenuItem_Click);
             // 
-            // radHabilitado
+            // verMatchesToolStripMenuItem
             // 
-            this.radHabilitado.AutoSize = true;
-            this.radHabilitado.Location = new System.Drawing.Point(98, 214);
-            this.radHabilitado.Name = "radHabilitado";
-            this.radHabilitado.Size = new System.Drawing.Size(72, 17);
-            this.radHabilitado.TabIndex = 16;
-            this.radHabilitado.TabStop = true;
-            this.radHabilitado.Text = "Habilitado";
-            this.radHabilitado.UseVisualStyleBackColor = true;
-            // 
-            // radInhabilitado
-            // 
-            this.radInhabilitado.AutoSize = true;
-            this.radInhabilitado.Location = new System.Drawing.Point(189, 214);
-            this.radInhabilitado.Name = "radInhabilitado";
-            this.radInhabilitado.Size = new System.Drawing.Size(79, 17);
-            this.radInhabilitado.TabIndex = 17;
-            this.radInhabilitado.TabStop = true;
-            this.radInhabilitado.Text = "Inhabilitado";
-            this.radInhabilitado.UseVisualStyleBackColor = true;
+            this.verMatchesToolStripMenuItem.Name = "verMatchesToolStripMenuItem";
+            this.verMatchesToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.verMatchesToolStripMenuItem.Text = "Ver Matches";
+            this.verMatchesToolStripMenuItem.Click += new System.EventHandler(this.verMatchesToolStripMenuItem_Click);
             // 
             // frmAdministrarAconsejados
             // 
@@ -446,5 +465,7 @@
         private System.Windows.Forms.RadioButton radInhabilitado;
         private System.Windows.Forms.RadioButton radHabilitado;
         private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.ToolStripMenuItem establecerMatchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verMatchesToolStripMenuItem;
     }
 }

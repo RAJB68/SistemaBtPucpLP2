@@ -71,52 +71,66 @@
             // 
             // Codigo
             // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Codigo.DataPropertyName = "Codigo";
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 65;
             // 
             // NombreCompleto
             // 
+            this.NombreCompleto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.NombreCompleto.DataPropertyName = "NombreCompleto";
             this.NombreCompleto.HeaderText = "Nombre";
             this.NombreCompleto.Name = "NombreCompleto";
             this.NombreCompleto.ReadOnly = true;
+            this.NombreCompleto.Width = 69;
             // 
             // FechaNacimiento
             // 
+            this.FechaNacimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.FechaNacimiento.DataPropertyName = "FechaNacimiento";
             this.FechaNacimiento.HeaderText = "Fecha de Nacimiento";
             this.FechaNacimiento.Name = "FechaNacimiento";
             this.FechaNacimiento.ReadOnly = true;
+            this.FechaNacimiento.Width = 122;
             // 
             // Correo
             // 
+            this.Correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Correo.DataPropertyName = "Correo";
             this.Correo.HeaderText = "Correo";
             this.Correo.Name = "Correo";
             this.Correo.ReadOnly = true;
+            this.Correo.Width = 5;
             // 
             // Especialidad
             // 
+            this.Especialidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Especialidad.DataPropertyName = "Especialidad";
             this.Especialidad.HeaderText = "Especialidad";
             this.Especialidad.Name = "Especialidad";
             this.Especialidad.ReadOnly = true;
+            this.Especialidad.Width = 5;
             // 
             // Ciclo
             // 
+            this.Ciclo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Ciclo.DataPropertyName = "Ciclo";
             this.Ciclo.HeaderText = "Ciclo";
             this.Ciclo.Name = "Ciclo";
             this.Ciclo.ReadOnly = true;
+            this.Ciclo.Width = 55;
             // 
             // Estado
             // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Estado.DataPropertyName = "Estado";
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
+            this.Estado.Width = 5;
             // 
             // frmBuscarAconsejado
             // 

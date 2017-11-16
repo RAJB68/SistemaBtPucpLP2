@@ -15,14 +15,14 @@ namespace AccesoDatos
         MySqlCommand cmd;
         public MatchDA()
         {
-            conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
-            cmd = new MySqlCommand();
         }
 
         public bool registrarMatch(Match m)
         {
             try
             {
+                conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
+                cmd = new MySqlCommand();
                 conn.Open();
 
                 cmd.Connection = conn;
@@ -46,58 +46,72 @@ namespace AccesoDatos
 
         }
 
-        public BindingList<Match> listarMatches()
+        public BindingList<Match> listarMatches(int codAconsejado)
         {
             BindingList<Match> lista = new BindingList<Match>();
 
             try
             {
+                conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
+                cmd = new MySqlCommand();
                 conn.Open();
 
                 cmd.Connection = conn;
-                cmd.CommandText = "LISTAR_MATCHES";
+                cmd.CommandText = "LISTAR_MATCH";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("_IdAconsejado", codAconsejado);
+                
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
                     Match m = new Match();
-                    //m.IdMatch = Int32.Parse(reader.GetString("IdMatch"));
+                    m.IdMatch = Int32.Parse(reader.GetString("IdMatch"));
                     m.IdAconsejado = Int32.Parse(reader.GetString("IdAconsejado"));
                     m.IdConsejero = Int32.Parse(reader.GetString("IdConsejero"));
                     m.FechaAsignacion = reader.GetDateTime("FechaAsignacion");
-                    m.FechaFin = reader.GetDateTime("FechaFin");
                     m.Estado = reader.GetString("Estado");
-
                     lista.Add(m);
                 }
+                //while (reader.Read())
+                //{
+                //    Match m = new Match();
+                //    //m.IdMatch = Int32.Parse(reader.GetString("IdMatch"));
+                //    m.IdAconsejado = Int32.Parse(reader.GetString("IdAconsejado"));
+                //    m.IdConsejero = Int32.Parse(reader.GetString("IdConsejero"));
+                //    m.FechaAsignacion = reader.GetDateTime("FechaAsignacion");
+                //    m.FechaFin = reader.GetDateTime("FechaFin");
+                //    m.Estado = reader.GetString("Estado");
+
+                //    lista.Add(m);
+                //}
 
 
 
-                cmd.CommandText = "LISTAR_ENCUESTAS_POR_MATCH";
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //cmd.CommandText = "LISTAR_ENCUESTAS_POR_MATCH";
+                //cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                for (int i=0; i<lista.Count; i++)
-                {
-                    Match match = lista.ElementAt(i);
-                    cmd.Parameters.AddWithValue("_idAconsejado", match.IdAconsejado);
-                    cmd.Parameters.AddWithValue("_idConsejero", match.IdConsejero);
-                    //cmd.Parameters.AddWithValue("_idMatch", match.IdMatch);
+                //for (int i=0; i<lista.Count; i++)
+                //{
+                //    Match match = lista.ElementAt(i);
+                //    cmd.Parameters.AddWithValue("_idAconsejado", match.IdAconsejado);
+                //    cmd.Parameters.AddWithValue("_idConsejero", match.IdConsejero);
+                //    //cmd.Parameters.AddWithValue("_idMatch", match.IdMatch);
 
-                    reader = cmd.ExecuteReader();
+                //    reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        Encuesta e = new Encuesta();
-                        e.IdEncuesta = Int32.Parse(reader.GetString("IdEncuesta"));
-                        //e.IdMatch = Int32.Parse(reader.GetString("IdMatch"));
-                        e.Descripcion = reader.GetString("Descripcion");
-                        e.Link = reader.GetString("Link");
-                        e.Duracion = Int32.Parse(reader.GetString("Duracion"));
-                        e.Estado = reader.GetString("Estado");
-                    }
+                //    while (reader.Read())
+                //    {
+                //        Encuesta e = new Encuesta();
+                //        e.IdEncuesta = Int32.Parse(reader.GetString("IdEncuesta"));
+                //        //e.IdMatch = Int32.Parse(reader.GetString("IdMatch"));
+                //        e.Descripcion = reader.GetString("Descripcion");
+                //        e.Link = reader.GetString("Link");
+                //        e.Duracion = Int32.Parse(reader.GetString("Duracion"));
+                //        e.Estado = reader.GetString("Estado");
+                //    }
 
-                }
+                //}
 
                 return lista;
 

@@ -20,9 +20,9 @@ namespace Controlador
             return accesoDatos.registrarMatch(m);
         }
 
-        public BindingList<Match> listarMatches()
+        public BindingList<Match> listarMatches(int codAconsejado)
         {
-            return accesoDatos.listarMatches();
+            return accesoDatos.listarMatches(codAconsejado);
         }
     }
 }

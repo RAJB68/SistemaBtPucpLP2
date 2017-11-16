@@ -34,7 +34,7 @@ namespace Modelo
             _observaciones = observaciones;
         }
 
-        public Aconsejado() { _estado = "inactivo"; }
+        public Aconsejado() { _estado = "Inhabilitado"; }
 
         public string NombreCompleto { get => _nombreCompleto; set => _nombreCompleto = value; }
         public DateTime FechaNacimiento { get => _fechaNacimiento; set => _fechaNacimiento = value; }

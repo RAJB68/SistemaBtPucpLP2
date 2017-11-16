@@ -27,6 +27,7 @@ namespace Modelo
 
 
         ///*
+        private int idMatch;
         private int idAconsejado; 
         private int idConsejero;
         private DateTime fechaAsignacion;
@@ -42,6 +43,7 @@ namespace Modelo
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public string Estado { get => estado; set => estado = value; }
         public BindingList<Encuesta> Encuestas { get => encuestas; set => encuestas = value; }
+        public int IdMatch { get => idMatch; set => idMatch = value; }
         //*/
     }
 }

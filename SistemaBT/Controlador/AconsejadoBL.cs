@@ -33,9 +33,9 @@ namespace Controlador
             return accesoDatosAconsejado.modificarAconsejado(a);
         }
 
-        public bool eliminarAconsejado(Aconsejado a)
+        public bool eliminarAconsejado(int cod)
         {
-            return accesoDatosAconsejado.modificarAconsejado(a);
+            return accesoDatosAconsejado.eliminarAconsejado(cod);
         }
 
     }

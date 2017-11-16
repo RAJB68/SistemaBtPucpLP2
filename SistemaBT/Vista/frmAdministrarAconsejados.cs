@@ -48,6 +48,7 @@ namespace Vista
                 txtObservaciones.Enabled = false;
                 btnAgregar.Enabled = false;
                 btnCancelar.Enabled = false;
+                txtEspecialidad.Text = "";
                 txtEspecialidad.Enabled = false;
                 numUDCiclo.Value = 1;
                 numUDCiclo.Enabled = false;
@@ -140,18 +141,6 @@ namespace Vista
 
         private void vincularToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txtCodAlumno.Text == "") { MessageBox.Show("No se eligió el alumno con el cual vincular", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-            /////REALIZAR MATCH
-            frmBuscarConsejero frmBC = new frmBuscarConsejero();
-            if (frmBC.ShowDialog() == DialogResult.OK)
-            {
-                Match m = new Match();
-                m.IdAconsejado = Int32.Parse(txtCodAlumno.Text);
-                m.IdConsejero = frmBC.ConsejeroSeleccionado.Codigo;
-                m.FechaAsignacion = DateTime.Today;
-                m.Estado = "Bueno";
-                mLogicaNeg.registrarMatch(m);
-            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -161,31 +150,41 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            a = new Aconsejado();
-
             if (txtNombreCompleto.Text == "")
             {
                 MessageBox.Show("No se ingresó nombre del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
-            } else a.NombreCompleto = txtNombreCompleto.Text;
+            }
+            else if (txtNombreCompleto.Text.Length > 60)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
 
             if (16 > (DateTime.Today.Year - ftpFechaNacimiento.Value.Year))
             {
                 MessageBox.Show("La fecha de nacimiento introducida no válida", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
-            } else a.FechaNacimiento = ftpFechaNacimiento.Value;
+            }
 
             try
             {
-                a.Telefono = Int32.Parse(txtNumeroTelefono.Text);
-            } catch (Exception exp)
+                Int32.Parse(txtNumeroTelefono.Text);
+            }
+            catch (Exception exp)
             {
                 MessageBox.Show("No se ingresó número de teléfono correcto", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            if (txtNumeroTelefono.Text.Length > 9)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
 
             if (txtDireccion.Text == "")
             {
                 MessageBox.Show("No se ingresó dirección del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            else a.Direccion = txtDireccion.Text;
+            else if (txtDireccion.Text.Length > 50)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
 
             try
             {
@@ -193,48 +192,54 @@ namespace Vista
             }
             catch (Exception exp)
             {
-                MessageBox.Show("Codigo del Aconsejado mal ingresado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                MessageBox.Show("Código del Aconsejado mal ingresado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            if ((Int32.Parse(txtCodAlumno.Text) > 19900000) & (Int32.Parse(txtCodAlumno.Text) < ((DateTime.Today.Year+1) * 10000)))
-                a.Codigo = Int32.Parse(txtCodAlumno.Text);
-            else { MessageBox.Show("Codigo ingresado no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-            
+            if ((Int32.Parse(txtCodAlumno.Text) < 19900000) || (Int32.Parse(txtCodAlumno.Text) > ((DateTime.Today.Year + 1) * 10000)))
+            { MessageBox.Show("Código ingresado no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+
             if (txtEspecialidad.Text == "")
             {
                 MessageBox.Show("No se ingresó especialidad del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            else a.Especialidad = txtEspecialidad.Text;
+            else if (txtEspecialidad.Text.Length > 50)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
 
             if (txtObservaciones.Text == "")
             {
-                MessageBox.Show("No existen observaciones del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
+                MessageBox.Show("No existen observaciones del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; 
             }
-            else a.Observaciones = txtObservaciones.Text;
 
             if (txtCorreo.Text == "")
             {
-                MessageBox.Show("No se ingresó correo del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
+                MessageBox.Show("No se ingresó correo del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; 
             }
-            else a.Correo = txtCorreo.Text;
+            else if (txtCorreo.Text.Length > 50)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+
+            if ((numUDCiclo.Value < 1) & (numUDCiclo.Value > 10))
+            { MessageBox.Show("Ciclo elegido no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
 
-            if ((numUDCiclo.Value > 0) & (numUDCiclo.Value <= 10)) a.Ciclo = (int)numUDCiclo.Value;
-            else { MessageBox.Show("Ciclo elegido no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-
-            //////MOSTRAR MENSAJE DE CONFIRMACION
-            ////
-            //
-            //
-            //
-            //
-            //
-            //
-            //
+            a = new Aconsejado();
+            a.Codigo = Int32.Parse(txtCodAlumno.Text);
+            a.NombreCompleto = txtNombreCompleto.Text;
+            a.FechaNacimiento = ftpFechaNacimiento.Value;
+            a.Telefono = Int32.Parse(txtNumeroTelefono.Text);
+            a.Correo = txtCorreo.Text;
+            a.Direccion = txtDireccion.Text;
+            a.Especialidad = txtEspecialidad.Text;
+            a.Ciclo = (int)numUDCiclo.Value;
+            a.Observaciones = txtObservaciones.Text;
 
             if (aLogicaNeg.registrarAconsejado(a))
             {
-                MessageBox.Show("Se ha registrado con exito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } else return;
+                MessageBox.Show("Aconsejado registrado con éxito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else return;
 
             modificarEstado(estado.GUARDAR);
         }
@@ -266,54 +271,82 @@ namespace Vista
             {
                 MessageBox.Show("No se ingresó nombre del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            else a.NombreCompleto = txtNombreCompleto.Text;
+            else if (txtNombreCompleto.Text.Length > 60)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
 
             if (16 > (DateTime.Today.Year - ftpFechaNacimiento.Value.Year))
             {
-                MessageBox.Show("La fecha de nacimiento introducida no válida", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                MessageBox.Show("La fecha de nacimiento introducida no es válida", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            else a.FechaNacimiento = ftpFechaNacimiento.Value;
 
             try
             {
-                a.Telefono = Int32.Parse(txtNumeroTelefono.Text);
+                Int32.Parse(txtNumeroTelefono.Text);
             }
             catch (Exception exp)
             {
                 MessageBox.Show("No se ingresó número de teléfono correcto", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            if (txtNumeroTelefono.Text.Length > 9)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
 
             if (txtDireccion.Text == "")
             {
                 MessageBox.Show("No se ingresó dirección del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            else a.Direccion = txtDireccion.Text;
+            else if (txtDireccion.Text.Length > 50)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
 
             if (txtEspecialidad.Text == "")
             {
                 MessageBox.Show("No se ingresó especialidad del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            else a.Especialidad = txtEspecialidad.Text;
+            else if (txtEspecialidad.Text.Length > 50)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
 
             if (txtObservaciones.Text == "")
             {
                 MessageBox.Show("No existen observaciones del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
             }
-            else a.Observaciones = txtObservaciones.Text;
 
             if (txtCorreo.Text == "")
             {
-                MessageBox.Show("No se ingresó correo del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
+                MessageBox.Show("No se ingresó el correo del Aconsejado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; //////////////////////////////////////////////
             }
-            else a.Correo = txtCorreo.Text;
+            else if (txtCorreo.Text.Length > 50)
+            {
+                MessageBox.Show("Límite del campo excedido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
 
+            if ((numUDCiclo.Value < 1) & (numUDCiclo.Value > 10))
+            { MessageBox.Show("Ciclo elegido no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+
+            a.Codigo = Int32.Parse(txtCodAlumno.Text);
+            a.NombreCompleto = txtNombreCompleto.Text;
+            a.FechaNacimiento = ftpFechaNacimiento.Value;
+            a.Telefono = Int32.Parse(txtNumeroTelefono.Text);
+            a.Correo = txtCorreo.Text;
+            a.Direccion = txtDireccion.Text;
+            a.Especialidad = txtEspecialidad.Text;
+            a.Ciclo = (int)numUDCiclo.Value;
+            a.Observaciones = txtObservaciones.Text;
             if (radHabilitado.Checked) a.Estado = "Habilitado";
             else a.Estado = "Inhabilitado";
 
-            if ((numUDCiclo.Value > 0) & (numUDCiclo.Value <= 10)) a.Ciclo = (int)numUDCiclo.Value;
-            else { MessageBox.Show("Ciclo elegido no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+            if (aLogicaNeg.modificarAconsejado(a))
+            {
+                MessageBox.Show("Aconsejado modificado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else return;
 
-            aLogicaNeg.modificarAconsejado(a);
+            modificarEstado(estado.INICIO);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -321,8 +354,39 @@ namespace Vista
             if(txtCodAlumno.Text == "") { MessageBox.Show("Aconsejado no escogido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
             else
             {
-                aLogicaNeg.eliminarAconsejado(a);
+                if (aLogicaNeg.eliminarAconsejado(Int32.Parse(txtCodAlumno.Text)))
+                {
+                    MessageBox.Show("Aconsejado eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else return;
+                modificarEstado(estado.INICIO);
             }
+        }
+
+        private void establecerMatchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtCodAlumno.Text == "") { MessageBox.Show("No se eligió el alumno con el cual vincular", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+            if (radInhabilitado.Checked) { MessageBox.Show("Solo se puede elegir Aconsejado habilitado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+            frmBuscarConsejero frmBC = new frmBuscarConsejero();
+            if (frmBC.ShowDialog() == DialogResult.OK)
+            {
+                if (frmBC.ConsejeroSeleccionado.Estado == "Inhabilitado") { MessageBox.Show("Solo se puede elegir Consejero habilitado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+                Match m = new Match();
+                m.IdAconsejado = Int32.Parse(txtCodAlumno.Text);
+                m.IdConsejero = frmBC.ConsejeroSeleccionado.Codigo;
+                m.FechaAsignacion = DateTime.Today;
+                m.Estado = "Bueno";
+                if (mLogicaNeg.registrarMatch(m))
+                    MessageBox.Show("Se estableció el Match exitósamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else return;
+                modificarEstado(estado.GUARDAR);
+            }
+        }
+
+        private void verMatchesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMostrarMatches fMM = new frmMostrarMatches();
+            fMM.Visible = true;
         }
     }
 }

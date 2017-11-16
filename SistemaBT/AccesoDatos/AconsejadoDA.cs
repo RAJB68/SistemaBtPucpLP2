@@ -17,8 +17,6 @@ namespace AccesoDatos
         MySqlCommand cmd;
         public AconsejadoDA()
         {
-            conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
-            cmd = new MySqlCommand();
         }
 
 
@@ -26,12 +24,14 @@ namespace AccesoDatos
         {
             try
             {
+                conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
+                cmd = new MySqlCommand();
                 conn.Open();
-
+                
                 cmd.Connection = conn;
                 cmd.CommandText = "CREAR_ACONSEJADO";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
+                
                 cmd.Parameters.AddWithValue("_Id", a.Codigo.ToString());
                 cmd.Parameters.AddWithValue("_nombre", a.NombreCompleto);
                 cmd.Parameters.AddWithValue("_fecha", a.FechaNacimiento);
@@ -59,8 +59,10 @@ namespace AccesoDatos
         {
             try
             {
+                conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
+                cmd = new MySqlCommand();
                 conn.Open();
-
+                
                 cmd.Connection = conn;
                 cmd.CommandText = "MODIFICAR_ACONSEJADO";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -87,17 +89,18 @@ namespace AccesoDatos
             }
         }
 
-        public bool eliminarAconsejado(Aconsejado a/*, string campoMantenido*/)
+        public bool eliminarAconsejado(int codigo)
         {
             try
             {
+                conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
+                cmd = new MySqlCommand();
                 conn.Open();
-
-
+                
                 cmd.Connection = conn;
                 cmd.CommandText = "ELIMINAR_ACONSEJADO";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("_id", a.Codigo.ToString());
+                cmd.Parameters.AddWithValue("_id", codigo);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
@@ -114,8 +117,10 @@ namespace AccesoDatos
 
             try
             {
+                conn = new MySqlConnection("server=200.16.7.96;user=inf282g3;database=inf282g3;port=3306;password=wWVyTf4lAXvjlZlC;");
+                cmd = new MySqlCommand();
                 conn.Open();
-
+                
                 cmd.Connection = conn;
                 cmd.CommandText = "LISTAR_ACONSEJADOS";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
