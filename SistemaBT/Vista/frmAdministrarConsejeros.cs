@@ -137,18 +137,49 @@ namespace Vista
         private void btnAgregarConsejero_Click(object sender, EventArgs e)
         {
             //Mandar registro a la logica del negocio
+            int c=0;
+            int t=0;
+            if (txtNombreConsejero.Text =="")
+            {
+                MessageBox.Show("Ingrese el nombre del consejero");
+                return;
+            }
+            if (txtEspecialidad.Text == "")
+            {
+                MessageBox.Show("Ingrese la especialidad");
+                return;
+            }
+            try
+            {
+               c = Int32.Parse(txtCodigoConsej.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Codigo Incorrecto");
+                return;
+            }
+            try
+            {
+                t= Int32.Parse(txtTelefConsej.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Telefono Incorrecto");
+                return;
+            }
+
             consejero.NombreCompleto = txtNombreConsejero.Text;
             consejero.AreasInteres1 = txtAreasIntConsej.Text;
             consejero.Especialidad = txtEspecialidad.Text;
             consejero.Grado = txtGradoConsej.Text;
             consejero.Cargo = txtCargoConsej.Text;
-            consejero.Codigo = Int32.Parse(txtCodigoConsej.Text);
+            consejero.Codigo = c;
             consejero.Correo = txtCorreoConsej.Text;
             consejero.Direccion = txtDireccConsej.Text;
             consejero.Empresa = txtEmpresaConsej.Text;
             consejero.Observaciones = txtObsConsej.Text;
             consejero.Sector = txtSectorConsej.Text;
-            consejero.Telefono = Int32.Parse(txtTelefConsej.Text);
+            consejero.Telefono = t;
             consejero.Especialidad = txtEspecialidad.Text;
             consejero.Grado = txtGradoConsej.Text;
             consejero.Estado = "Habilitado";
@@ -170,6 +201,30 @@ namespace Vista
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            
+            int t = 0;
+            if (txtNombreConsejero.Text == "")
+            {
+                MessageBox.Show("Ingrese el nombre del consejero");
+                return;
+            }
+            if (txtEspecialidad.Text == "")
+            {
+                MessageBox.Show("Ingrese la especialidad");
+                return;
+            }
+           try
+            {
+                t = Int32.Parse(txtTelefConsej.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Telefono Incorrecto");
+                return;
+            }
+
+
             Consejero con = new Consejero();
             con.NombreCompleto = txtNombreConsejero.Text;
             con.AreasInteres1 = txtAreasIntConsej.Text;
@@ -182,7 +237,7 @@ namespace Vista
             con.Empresa = txtEmpresaConsej.Text;
             con.Observaciones = txtObsConsej.Text;
             con.Sector = txtSectorConsej.Text;
-            con.Telefono = Int32.Parse(txtTelefConsej.Text);
+            con.Telefono = t;
             con.FechaNacimiento = DateTime.Parse(dtpFechaNacConsej.Text);
 
             if (LogNegConsejero.modificarConsejero(con))

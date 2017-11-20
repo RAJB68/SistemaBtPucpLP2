@@ -376,6 +376,10 @@ namespace Vista
                 m.IdConsejero = frmBC.ConsejeroSeleccionado.Codigo;
                 m.FechaAsignacion = DateTime.Today;
                 m.Estado = "Bueno";
+                frmBC.ConsejeroSeleccionado.Estado = "Inhabilitado";
+                ConsejeroBL conBL = new ConsejeroBL();
+                conBL.modificarConsejero(frmBC.ConsejeroSeleccionado);
+
                 if (mLogicaNeg.registrarMatch(m))
                     MessageBox.Show("Se estableció el Match exitósamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else return;

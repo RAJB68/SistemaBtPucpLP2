@@ -107,12 +107,12 @@
             // lblCodigoAlumno
             // 
             this.lblCodigoAlumno.AutoSize = true;
-            this.lblCodigoAlumno.Location = new System.Drawing.Point(25, 44);
+            this.lblCodigoAlumno.Location = new System.Drawing.Point(18, 42);
             this.lblCodigoAlumno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigoAlumno.Name = "lblCodigoAlumno";
-            this.lblCodigoAlumno.Size = new System.Drawing.Size(127, 17);
+            this.lblCodigoAlumno.Size = new System.Drawing.Size(142, 17);
             this.lblCodigoAlumno.TabIndex = 7;
-            this.lblCodigoAlumno.Text = "Código de Alumno:";
+            this.lblCodigoAlumno.Text = "Código de Alumno(*):";
             // 
             // txtCodigoConsej
             // 
