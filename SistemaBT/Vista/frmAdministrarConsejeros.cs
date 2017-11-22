@@ -20,7 +20,7 @@ namespace Vista
         public frmAdministrarConsejeros()
         {
             InitializeComponent();
-            this.Height = 800;
+            this.Height = 750;
         }
 
         private void label6_Click(object sender, EventArgs e)

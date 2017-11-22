@@ -233,7 +233,7 @@
             this.menuAconsejadosPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuAconsejadosPrincipal.Name = "menuAconsejadosPrincipal";
             this.menuAconsejadosPrincipal.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.menuAconsejadosPrincipal.Size = new System.Drawing.Size(744, 30);
+            this.menuAconsejadosPrincipal.Size = new System.Drawing.Size(742, 30);
             this.menuAconsejadosPrincipal.TabIndex = 15;
             this.menuAconsejadosPrincipal.Text = "menuStrip1";
             // 
@@ -466,7 +466,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 869);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(742, 873);
             this.Controls.Add(this.btnEliminarConsejero);
             this.Controls.Add(this.btnCancelarConsejero);
             this.Controls.Add(this.btnAgregarConsejero);
@@ -474,7 +475,9 @@
             this.Controls.Add(this.menuAconsejadosPrincipal);
             this.Controls.Add(this.grpPersonal);
             this.Controls.Add(this.grpPerfilUniversitario);
+            this.Location = new System.Drawing.Point(160, 0);
             this.Name = "frmAdministrarConsejeros";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Administrar Consejeros";
             this.Load += new System.EventHandler(this.frmAdministrarConsejeros_Load);
             this.grpPerfilUniversitario.ResumeLayout(false);

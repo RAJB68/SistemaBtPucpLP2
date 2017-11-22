@@ -20,8 +20,10 @@ namespace Vista
         public frmAdministrarActividades()
         {
             InitializeComponent();
+            this.Height = 750;
             this.txtNombre.Enabled = false;
             dgvActividades.AutoGenerateColumns = false;
+            dgvActividades.Enabled = false;
             dgvActividades.DataSource = actividades;
         }
 
@@ -85,6 +87,7 @@ namespace Vista
                 this.txtNombre.Text = this.consejeroSeleccionado.NombreCompleto;
                 f.Dispose();
                 this.actualizarTablaActividades();
+                this.dgvActividades.Enabled = true;
             }
         }
 
