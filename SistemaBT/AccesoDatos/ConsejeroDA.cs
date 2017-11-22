@@ -155,6 +155,96 @@ namespace AccesoDatos
 
         }
 
+        public BindingList<Consejero> listarConsejerosPorID(int id)
+        {
+            BindingList<Consejero> consejeros = new BindingList<Consejero>();
+
+           
+
+            if (this.AbrirConexion())
+            {
+                MySqlCommand cmd = conexion.CreateCommand();
+               
+
+                cmd.CommandText = "LISTAR_CONSEJEROS_POR_ID ";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("_IdConsejero", id);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Consejero c = new Consejero();
+                    c.Codigo = Int32.Parse(reader.GetString("IdConsejero"));
+                    c.NombreCompleto = reader.GetString("NombreCompleto");
+                    c.FechaNacimiento = reader.GetDateTime("FechaNacimiento");
+                    c.Telefono = Int32.Parse(reader.GetString("Telefono"));
+                    c.Correo = reader.GetString("Correo");
+                    c.Direccion = reader.GetString("Direccion");
+                    c.Especialidad = reader.GetString("Especialidad");
+                    c.Empresa = reader.GetString("Empresa");
+                    c.Sector = reader.GetString("Sector");
+                    c.Cargo = reader.GetString("Cargo");
+                    c.AreasInteres1 = reader.GetString("AreasInteres");
+                    c.Observaciones = reader.GetString("Observaciones");
+                    c.Estado = reader.GetString("Estado");
+                    consejeros.Add(c);
+                }
+               
+
+
+                this.CerrarConexion();
+            }
+
+            return consejeros;
+
+
+        }
+
+        public BindingList<Consejero> listarConsejerosPorNombre(string nombre)
+        {
+            BindingList<Consejero> consejeros = new BindingList<Consejero>();
+
+
+
+            if (this.AbrirConexion())
+            {
+                MySqlCommand cmd = conexion.CreateCommand();
+
+
+                cmd.CommandText = "LISTAR_CONSEJEROS_POR_NOMBRE ";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("_Nombre", nombre);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Consejero c = new Consejero();
+                    c.Codigo = Int32.Parse(reader.GetString("IdConsejero"));
+                    c.NombreCompleto = reader.GetString("NombreCompleto");
+                    c.FechaNacimiento = reader.GetDateTime("FechaNacimiento");
+                    c.Telefono = Int32.Parse(reader.GetString("Telefono"));
+                    c.Correo = reader.GetString("Correo");
+                    c.Direccion = reader.GetString("Direccion");
+                    c.Especialidad = reader.GetString("Especialidad");
+                    c.Empresa = reader.GetString("Empresa");
+                    c.Sector = reader.GetString("Sector");
+                    c.Cargo = reader.GetString("Cargo");
+                    c.AreasInteres1 = reader.GetString("AreasInteres");
+                    c.Observaciones = reader.GetString("Observaciones");
+                    c.Estado = reader.GetString("Estado");
+                    consejeros.Add(c);
+                }
+
+
+
+                this.CerrarConexion();
+            }
+
+            return consejeros;
+
+
+        }
+
         public bool elimnarConsejero(int codConsej)
         {
 

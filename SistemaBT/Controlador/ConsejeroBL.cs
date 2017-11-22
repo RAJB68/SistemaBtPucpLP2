@@ -27,6 +27,16 @@ namespace Controlador
         {
             return consejeroDataAccess.leerConsejeros();
         }
+
+        public BindingList<Consejero> listarConsejerosPorId(int id)
+        {
+            return consejeroDataAccess.listarConsejerosPorID(id);
+        }
+        public BindingList<Consejero> listarConsejerosPorNombre(string nombre)
+        {
+            return consejeroDataAccess.listarConsejerosPorNombre(nombre);
+        }
+
         public bool modificarConsejero(Consejero c)
         {
             return consejeroDataAccess.modificarConsejero(c);

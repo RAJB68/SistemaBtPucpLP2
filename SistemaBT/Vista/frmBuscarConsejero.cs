@@ -20,6 +20,7 @@ namespace Vista
             InitializeComponent();
             ConsejeroBL consejeroLogNeg = new ConsejeroBL();
             BindingList<Consejero> consejeros = consejeroLogNeg.leerConsejeros();
+            
             dgvConsejeros.AutoGenerateColumns = false;
             dgvConsejeros.DataSource = consejeros;
          
