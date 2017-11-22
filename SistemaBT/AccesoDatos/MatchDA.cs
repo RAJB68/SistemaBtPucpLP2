@@ -32,6 +32,7 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("_IdAconsejado", m.IdAconsejado);
                 cmd.Parameters.AddWithValue("_IdConsejero", m.IdConsejero);
                 cmd.Parameters.AddWithValue("_FechaAsignacion", m.FechaAsignacion);
+                cmd.Parameters.AddWithValue("_FechaFin", m.FechaFin);
                 cmd.Parameters.AddWithValue("_Estado", m.Estado);
 
                 cmd.ExecuteNonQuery();
@@ -70,6 +71,7 @@ namespace AccesoDatos
                     m.IdAconsejado = Int32.Parse(reader.GetString("IdAconsejado"));
                     m.IdConsejero = Int32.Parse(reader.GetString("IdConsejero"));
                     m.FechaAsignacion = reader.GetDateTime("FechaAsignacion");
+                    m.FechaFin = reader.GetDateTime("FechaFin");
                     m.Estado = reader.GetString("Estado");
                     lista.Add(m);
                 }

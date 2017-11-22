@@ -62,7 +62,9 @@ namespace Vista
 
                 nuevoToolStripMenuItem.Enabled = true;
                 modificarToolStripMenuItem.Enabled = true;
-                vincularToolStripMenuItem.Enabled = false;
+                vincularToolStripMenuItem.Enabled = true;
+                establecerMatchToolStripMenuItem.Enabled = false;
+                verMatchesToolStripMenuItem.Enabled = true;
                 actividadToolStripMenuItem.Enabled = false;
             } else if (e == estado.NUEVO)     //elige crear un nuevo aconsejado
             {
@@ -95,10 +97,14 @@ namespace Vista
                 btnCancelar.Enabled = false;
                 txtEspecialidad.Enabled = false;
                 numUDCiclo.Enabled = false;
+                radHabilitado.Enabled = false;
+                radInhabilitado.Enabled = false;
 
                 nuevoToolStripMenuItem.Enabled = true;
                 modificarToolStripMenuItem.Enabled = true;
-                vincularToolStripMenuItem.Enabled = false;
+                vincularToolStripMenuItem.Enabled = true;
+                establecerMatchToolStripMenuItem.Enabled = false;
+                verMatchesToolStripMenuItem.Enabled = true;
                 actividadToolStripMenuItem.Enabled = false;
             } else if (e == estado.MODIFICAR_ELIMINAR)    //manda a un formulario a buscar el aconsejado a modificar y llena los campos con el seleccionado
             {
@@ -124,6 +130,8 @@ namespace Vista
                 nuevoToolStripMenuItem.Enabled = false;
                 modificarToolStripMenuItem.Enabled = true;
                 vincularToolStripMenuItem.Enabled = true;
+                establecerMatchToolStripMenuItem.Enabled = true;
+                verMatchesToolStripMenuItem.Enabled = true;
                 actividadToolStripMenuItem.Enabled = false;
             }
         }
@@ -357,6 +365,8 @@ namespace Vista
                 if (aLogicaNeg.eliminarAconsejado(Int32.Parse(txtCodAlumno.Text)))
                 {
                     MessageBox.Show("Aconsejado eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //FALTA ELIMINAR O INHABILITAR MATCHES
                 }
                 else return;
                 modificarEstado(estado.INICIO);
@@ -375,13 +385,17 @@ namespace Vista
                 m.IdAconsejado = Int32.Parse(txtCodAlumno.Text);
                 m.IdConsejero = frmBC.ConsejeroSeleccionado.Codigo;
                 m.FechaAsignacion = DateTime.Today;
-                m.Estado = "Bueno";
+                m.Estado = "Activo";
                 frmBC.ConsejeroSeleccionado.Estado = "Inhabilitado";
+                a.Estado = "Inhabilitado";
                 ConsejeroBL conBL = new ConsejeroBL();
-                conBL.modificarConsejero(frmBC.ConsejeroSeleccionado);
 
                 if (mLogicaNeg.registrarMatch(m))
+                {
+                    conBL.modificarConsejero(frmBC.ConsejeroSeleccionado);
+                    aLogicaNeg.modificarAconsejado(a);
                     MessageBox.Show("Se estableció el Match exitósamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 else return;
                 modificarEstado(estado.GUARDAR);
             }

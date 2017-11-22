@@ -32,6 +32,8 @@
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vincularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.establecerMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpPersonal = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,8 +62,6 @@
             this.txtCodAlumno = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.establecerMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAconsejadosPrincipal.SuspendLayout();
             this.grpPersonal.SuspendLayout();
             this.grpPerfilUniversitario.SuspendLayout();
@@ -105,6 +105,20 @@
             this.vincularToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.vincularToolStripMenuItem.Text = "Vincular";
             this.vincularToolStripMenuItem.Click += new System.EventHandler(this.vincularToolStripMenuItem_Click);
+            // 
+            // establecerMatchToolStripMenuItem
+            // 
+            this.establecerMatchToolStripMenuItem.Name = "establecerMatchToolStripMenuItem";
+            this.establecerMatchToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.establecerMatchToolStripMenuItem.Text = "Establecer Match";
+            this.establecerMatchToolStripMenuItem.Click += new System.EventHandler(this.establecerMatchToolStripMenuItem_Click);
+            // 
+            // verMatchesToolStripMenuItem
+            // 
+            this.verMatchesToolStripMenuItem.Name = "verMatchesToolStripMenuItem";
+            this.verMatchesToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.verMatchesToolStripMenuItem.Text = "Ver Matches";
+            this.verMatchesToolStripMenuItem.Click += new System.EventHandler(this.verMatchesToolStripMenuItem_Click);
             // 
             // actividadToolStripMenuItem
             // 
@@ -389,25 +403,11 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // establecerMatchToolStripMenuItem
-            // 
-            this.establecerMatchToolStripMenuItem.Name = "establecerMatchToolStripMenuItem";
-            this.establecerMatchToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.establecerMatchToolStripMenuItem.Text = "Establecer Match";
-            this.establecerMatchToolStripMenuItem.Click += new System.EventHandler(this.establecerMatchToolStripMenuItem_Click);
-            // 
-            // verMatchesToolStripMenuItem
-            // 
-            this.verMatchesToolStripMenuItem.Name = "verMatchesToolStripMenuItem";
-            this.verMatchesToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.verMatchesToolStripMenuItem.Text = "Ver Matches";
-            this.verMatchesToolStripMenuItem.Click += new System.EventHandler(this.verMatchesToolStripMenuItem_Click);
-            // 
             // frmAdministrarAconsejados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 471);
+            this.ClientSize = new System.Drawing.Size(554, 465);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.grpPerfilUniversitario);
