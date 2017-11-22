@@ -23,6 +23,7 @@ namespace Vista
         public frmAdministrarAconsejados()
         {
             InitializeComponent();
+            this.Height = 750;
             modificarEstado(estado.INICIO);
             aLogicaNeg = new AconsejadoBL();
             mLogicaNeg = new MatchBL();
@@ -405,6 +406,16 @@ namespace Vista
         {
             frmMostrarMatches fMM = new frmMostrarMatches();
             fMM.Visible = true;
+        }
+
+        private void lblCodigoAlumno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodAlumno_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

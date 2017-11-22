@@ -15,25 +15,30 @@ namespace Vista
         public Principal()
         {
             InitializeComponent();
+            this.Height = 750;
         }
 
-        private void btnAdminConsejeros_Click(object sender, EventArgs e)
+        private void btnAdminConsejeros_Click_1(object sender, EventArgs e)
         {
             frmAdministrarConsejeros fConsej = new frmAdministrarConsejeros();
             fConsej.Visible = true;
-
         }
 
-        private void btnAdminAconsejados_Click(object sender, EventArgs e)
+        private void btAdminAconsejados_Click(object sender, EventArgs e)
         {
             frmAdministrarAconsejados fAconsej = new frmAdministrarAconsejados();
             fAconsej.Visible = true;
         }
 
-        private void btAdminActividades_Click(object sender, EventArgs e)
+        private void btAdminActividades_Click_1(object sender, EventArgs e)
         {
             frmAdministrarActividades fActivi = new frmAdministrarActividades();
             fActivi.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
