@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvAconsejados = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionarAconsejado = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +36,7 @@
             this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ciclo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSeleccionarAconsejado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAconsejados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,16 +58,6 @@
             this.dgvAconsejados.ReadOnly = true;
             this.dgvAconsejados.Size = new System.Drawing.Size(570, 336);
             this.dgvAconsejados.TabIndex = 0;
-            // 
-            // btnSeleccionarAconsejado
-            // 
-            this.btnSeleccionarAconsejado.Location = new System.Drawing.Point(508, 12);
-            this.btnSeleccionarAconsejado.Name = "btnSeleccionarAconsejado";
-            this.btnSeleccionarAconsejado.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionarAconsejado.TabIndex = 1;
-            this.btnSeleccionarAconsejado.Text = "Seleccionar";
-            this.btnSeleccionarAconsejado.UseVisualStyleBackColor = true;
-            this.btnSeleccionarAconsejado.Click += new System.EventHandler(this.btnSeleccionarAconsejado_Click);
             // 
             // Codigo
             // 
@@ -131,6 +121,16 @@
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             this.Estado.Width = 5;
+            // 
+            // btnSeleccionarAconsejado
+            // 
+            this.btnSeleccionarAconsejado.Location = new System.Drawing.Point(508, 12);
+            this.btnSeleccionarAconsejado.Name = "btnSeleccionarAconsejado";
+            this.btnSeleccionarAconsejado.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionarAconsejado.TabIndex = 1;
+            this.btnSeleccionarAconsejado.Text = "Modificar";
+            this.btnSeleccionarAconsejado.UseVisualStyleBackColor = true;
+            this.btnSeleccionarAconsejado.Click += new System.EventHandler(this.btnSeleccionarAconsejado_Click);
             // 
             // frmBuscarAconsejado
             // 

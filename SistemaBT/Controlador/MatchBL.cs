@@ -24,5 +24,15 @@ namespace Controlador
         {
             return accesoDatos.listarMatches(codAconsejado);
         }
+
+        public bool finalizarMatch(Match m)
+        {
+            return accesoDatos.finalizarMatch(m);
+        }
+
+        public bool eliminarMatchPorAconsejado(int id)
+        {
+            return accesoDatos.eliminarMatchesPorAconsejado(id);
+        }
     }
 }

@@ -63,6 +63,12 @@
     <Compile Include="frmAdministrarConsejeros.Designer.cs">
       <DependentUpon>frmAdministrarConsejeros.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAdministrarMatches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministrarMatches.Designer.cs">
+      <DependentUpon>frmAdministrarMatches.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAgregarActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrarConsejeros.resx">
       <DependentUpon>frmAdministrarConsejeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdministrarMatches.resx">
+      <DependentUpon>frmAdministrarMatches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarActividad.resx">
       <DependentUpon>frmAgregarActividad.cs</DependentUpon>

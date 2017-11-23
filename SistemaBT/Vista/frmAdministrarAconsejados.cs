@@ -55,17 +55,14 @@ namespace Vista
                 numUDCiclo.Enabled = false;
                 btnModificar.Enabled = false;
                 btnEliminar.Enabled = false;
-                radHabilitado.Visible = false;
-                radHabilitado.Enabled = false;
-                radInhabilitado.Visible = false;
-                radInhabilitado.Enabled = false;
-                lblEstado.Visible = false;
+                //radHabilitado.Visible = false;
+                //radHabilitado.Enabled = false;
+                //radInhabilitado.Visible = false;
+                //radInhabilitado.Enabled = false;
+                //lblEstado.Visible = false;
 
                 nuevoToolStripMenuItem.Enabled = true;
                 modificarToolStripMenuItem.Enabled = true;
-                vincularToolStripMenuItem.Enabled = true;
-                establecerMatchToolStripMenuItem.Enabled = false;
-                verMatchesToolStripMenuItem.Enabled = true;
                 actividadToolStripMenuItem.Enabled = false;
             } else if (e == estado.NUEVO)     //elige crear un nuevo aconsejado
             {
@@ -83,7 +80,6 @@ namespace Vista
 
                 nuevoToolStripMenuItem.Enabled = false;
                 modificarToolStripMenuItem.Enabled = false;
-                vincularToolStripMenuItem.Enabled = false;
                 actividadToolStripMenuItem.Enabled = false;
             } else if (e == estado.GUARDAR)    //presiona el boton guardar, deja los campos con los datos ingresados
             {
@@ -98,14 +94,11 @@ namespace Vista
                 btnCancelar.Enabled = false;
                 txtEspecialidad.Enabled = false;
                 numUDCiclo.Enabled = false;
-                radHabilitado.Enabled = false;
-                radInhabilitado.Enabled = false;
+                //radHabilitado.Enabled = false;
+                //radInhabilitado.Enabled = false;
 
                 nuevoToolStripMenuItem.Enabled = true;
                 modificarToolStripMenuItem.Enabled = true;
-                vincularToolStripMenuItem.Enabled = true;
-                establecerMatchToolStripMenuItem.Enabled = false;
-                verMatchesToolStripMenuItem.Enabled = true;
                 actividadToolStripMenuItem.Enabled = false;
             } else if (e == estado.MODIFICAR_ELIMINAR)    //manda a un formulario a buscar el aconsejado a modificar y llena los campos con el seleccionado
             {
@@ -122,17 +115,14 @@ namespace Vista
                 numUDCiclo.Enabled = true;
                 btnModificar.Enabled = true;
                 btnEliminar.Enabled = true;
-                radHabilitado.Visible = true;
-                radHabilitado.Enabled = true;
-                radInhabilitado.Visible = true;
-                radInhabilitado.Enabled = true;
-                lblEstado.Visible = true;
+                //radHabilitado.Visible = true;
+                //radHabilitado.Enabled = true;
+                //radInhabilitado.Visible = true;
+                //radInhabilitado.Enabled = true;
+                //lblEstado.Visible = true;
 
                 nuevoToolStripMenuItem.Enabled = false;
                 modificarToolStripMenuItem.Enabled = true;
-                vincularToolStripMenuItem.Enabled = true;
-                establecerMatchToolStripMenuItem.Enabled = true;
-                verMatchesToolStripMenuItem.Enabled = true;
                 actividadToolStripMenuItem.Enabled = false;
             }
         }
@@ -269,8 +259,8 @@ namespace Vista
                 numUDCiclo.Value = a.Ciclo;
                 txtCorreo.Text = a.Correo;
                 txtObservaciones.Text = a.Observaciones;
-                if (a.Estado == "Habilitado") radHabilitado.Checked = true;
-                else radInhabilitado.Checked = true;
+                //if (a.Estado == "Habilitado") radHabilitado.Checked = true;
+                //else radInhabilitado.Checked = true;
             }
         }
 
@@ -337,7 +327,7 @@ namespace Vista
 
             if ((numUDCiclo.Value < 1) & (numUDCiclo.Value > 10))
             { MessageBox.Show("Ciclo elegido no válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-
+            
             a.Codigo = Int32.Parse(txtCodAlumno.Text);
             a.NombreCompleto = txtNombreCompleto.Text;
             a.FechaNacimiento = ftpFechaNacimiento.Value;
@@ -347,8 +337,8 @@ namespace Vista
             a.Especialidad = txtEspecialidad.Text;
             a.Ciclo = (int)numUDCiclo.Value;
             a.Observaciones = txtObservaciones.Text;
-            if (radHabilitado.Checked) a.Estado = "Habilitado";
-            else a.Estado = "Inhabilitado";
+            //if (radHabilitado.Checked) a.Estado = "Habilitado";
+            //else a.Estado = "Inhabilitado";
 
             if (aLogicaNeg.modificarAconsejado(a))
             {
@@ -365,47 +355,44 @@ namespace Vista
             {
                 if (aLogicaNeg.eliminarAconsejado(Int32.Parse(txtCodAlumno.Text)))
                 {
-                    MessageBox.Show("Aconsejado eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    //FALTA ELIMINAR O INHABILITAR MATCHES
+                    if (mLogicaNeg.eliminarMatchPorAconsejado(Int32.Parse(txtCodAlumno.Text)))
+                        MessageBox.Show("Aconsejado eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else return;
+                else { MessageBox.Show("Aconsejado no pudo ser eliminado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); };
                 modificarEstado(estado.INICIO);
             }
         }
 
-        private void establecerMatchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (txtCodAlumno.Text == "") { MessageBox.Show("No se eligió el alumno con el cual vincular", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-            if (radInhabilitado.Checked) { MessageBox.Show("Solo se puede elegir Aconsejado habilitado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-            frmBuscarConsejero frmBC = new frmBuscarConsejero();
-            if (frmBC.ShowDialog() == DialogResult.OK)
-            {
-                if (frmBC.ConsejeroSeleccionado.Estado == "Inhabilitado") { MessageBox.Show("Solo se puede elegir Consejero habilitado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
-                Match m = new Match();
-                m.IdAconsejado = Int32.Parse(txtCodAlumno.Text);
-                m.IdConsejero = frmBC.ConsejeroSeleccionado.Codigo;
-                m.FechaAsignacion = DateTime.Today;
-                m.Estado = "Activo";
-                frmBC.ConsejeroSeleccionado.Estado = "Inhabilitado";
-                a.Estado = "Inhabilitado";
-                ConsejeroBL conBL = new ConsejeroBL();
+        //private void establecerMatchToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (txtCodAlumno.Text == "") { MessageBox.Show("No se eligió el alumno con el cual vincular", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+        //    if (radInhabilitado.Checked) { MessageBox.Show("Solo se puede elegir Aconsejado habilitado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+        //    frmBuscarConsejero frmBC = new frmBuscarConsejero();
+        //    if (frmBC.ShowDialog() == DialogResult.OK)
+        //    {
+        //        if (frmBC.ConsejeroSeleccionado.Estado == "Inhabilitado") { MessageBox.Show("Solo se puede elegir Consejero habilitado", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+        //        Match m = new Match();
+        //        m.IdAconsejado = Int32.Parse(txtCodAlumno.Text);
+        //        m.IdConsejero = frmBC.ConsejeroSeleccionado.Codigo;
+        //        m.FechaAsignacion = DateTime.Today;
+        //        m.Estado = "Activo";
+        //        frmBC.ConsejeroSeleccionado.Estado = "Inhabilitado";
+        //        a.Estado = "Inhabilitado";
+        //        ConsejeroBL conBL = new ConsejeroBL();
 
-                if (mLogicaNeg.registrarMatch(m))
-                {
-                    conBL.modificarConsejero(frmBC.ConsejeroSeleccionado);
-                    aLogicaNeg.modificarAconsejado(a);
-                    MessageBox.Show("Se estableció el Match exitósamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else return;
-                modificarEstado(estado.GUARDAR);
-            }
-        }
+        //        if (mLogicaNeg.registrarMatch(m))
+        //        {
+        //            conBL.modificarConsejero(frmBC.ConsejeroSeleccionado);
+        //            aLogicaNeg.modificarAconsejado(a);
+        //            MessageBox.Show("Se estableció el Match exitósamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //        else return;
+        //        modificarEstado(estado.GUARDAR);
+        //    }
+        //}
 
         private void verMatchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMostrarMatches fMM = new frmMostrarMatches();
-            fMM.Visible = true;
         }
 
         private void lblCodigoAlumno_Click(object sender, EventArgs e)

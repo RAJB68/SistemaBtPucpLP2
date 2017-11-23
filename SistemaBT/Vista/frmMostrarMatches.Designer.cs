@@ -28,44 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbAconsejados = new System.Windows.Forms.ComboBox();
-            this.lblNombreAconsejado = new System.Windows.Forms.Label();
-            this.btnBuscarMatches = new System.Windows.Forms.Button();
             this.dgvMatches = new System.Windows.Forms.DataGridView();
             this.idMatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreConsejero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaAsig = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFinMatch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cmbAconsejados
-            // 
-            this.cmbAconsejados.FormattingEnabled = true;
-            this.cmbAconsejados.Location = new System.Drawing.Point(141, 25);
-            this.cmbAconsejados.Name = "cmbAconsejados";
-            this.cmbAconsejados.Size = new System.Drawing.Size(284, 21);
-            this.cmbAconsejados.TabIndex = 0;
-            // 
-            // lblNombreAconsejado
-            // 
-            this.lblNombreAconsejado.AutoSize = true;
-            this.lblNombreAconsejado.Location = new System.Drawing.Point(12, 28);
-            this.lblNombreAconsejado.Name = "lblNombreAconsejado";
-            this.lblNombreAconsejado.Size = new System.Drawing.Size(123, 13);
-            this.lblNombreAconsejado.TabIndex = 1;
-            this.lblNombreAconsejado.Text = "Nombre del Aconsejado:";
-            // 
-            // btnBuscarMatches
-            // 
-            this.btnBuscarMatches.Location = new System.Drawing.Point(471, 23);
-            this.btnBuscarMatches.Name = "btnBuscarMatches";
-            this.btnBuscarMatches.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarMatches.TabIndex = 2;
-            this.btnBuscarMatches.Text = "Buscar";
-            this.btnBuscarMatches.UseVisualStyleBackColor = true;
-            this.btnBuscarMatches.Click += new System.EventHandler(this.btnBuscarMatches_Click);
             // 
             // dgvMatches
             // 
@@ -78,10 +49,10 @@
             this.fechaAsig,
             this.fechaFin,
             this.estado});
-            this.dgvMatches.Location = new System.Drawing.Point(15, 64);
+            this.dgvMatches.Location = new System.Drawing.Point(15, 12);
             this.dgvMatches.Name = "dgvMatches";
             this.dgvMatches.ReadOnly = true;
-            this.dgvMatches.Size = new System.Drawing.Size(531, 275);
+            this.dgvMatches.Size = new System.Drawing.Size(484, 327);
             this.dgvMatches.TabIndex = 3;
             // 
             // idMatch
@@ -91,7 +62,7 @@
             this.idMatch.HeaderText = "ID Match";
             this.idMatch.Name = "idMatch";
             this.idMatch.ReadOnly = true;
-            this.idMatch.Width = 76;
+            this.idMatch.Width = 70;
             // 
             // nombreConsejero
             // 
@@ -125,34 +96,38 @@
             this.estado.ReadOnly = true;
             this.estado.Width = 65;
             // 
+            // btnFinMatch
+            // 
+            this.btnFinMatch.Location = new System.Drawing.Point(394, 348);
+            this.btnFinMatch.Name = "btnFinMatch";
+            this.btnFinMatch.Size = new System.Drawing.Size(105, 23);
+            this.btnFinMatch.TabIndex = 4;
+            this.btnFinMatch.Text = "Finalizar Match";
+            this.btnFinMatch.UseVisualStyleBackColor = true;
+            this.btnFinMatch.Click += new System.EventHandler(this.btnFinMatch_Click);
+            // 
             // frmMostrarMatches
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 351);
+            this.ClientSize = new System.Drawing.Size(511, 383);
+            this.Controls.Add(this.btnFinMatch);
             this.Controls.Add(this.dgvMatches);
-            this.Controls.Add(this.btnBuscarMatches);
-            this.Controls.Add(this.lblNombreAconsejado);
-            this.Controls.Add(this.cmbAconsejados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMostrarMatches";
-            this.Text = "frmMostrarMatches";
+            this.Text = "Mostrar Matches";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbAconsejados;
-        private System.Windows.Forms.Label lblNombreAconsejado;
-        private System.Windows.Forms.Button btnBuscarMatches;
         private System.Windows.Forms.DataGridView dgvMatches;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMatch;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreConsejero;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaAsig;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.Button btnFinMatch;
     }
 }

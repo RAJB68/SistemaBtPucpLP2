@@ -14,32 +14,40 @@ namespace Vista
 {
     public partial class frmMostrarMatches : Form
     {
-        private AconsejadoBL aLogNeg;
-        private ConsejeroBL cLogNeg;
         private MatchBL mLogNeg;
+        private AconsejadoBL aLogNeg;
 
         public frmMostrarMatches()
         {
             InitializeComponent();
+            mLogNeg = new MatchBL();
             aLogNeg = new AconsejadoBL();
-            BindingList<Aconsejado> aconsejados = aLogNeg.listarAconsejados();
+            BindingList<Match> matches = mLogNeg.listarMatches(0);
             dgvMatches.AutoGenerateColumns = false;
-            cmbAconsejados.ValueMember = "NombreCompleto";
-            foreach( Aconsejado a in aconsejados)
-            {
-                cmbAconsejados.Items.Add(a);
-            }
+            dgvMatches.DataSource = matches;
         }
 
         private void btnBuscarMatches_Click(object sender, EventArgs e)
         {
-            cLogNeg = new ConsejeroBL();
-            BindingList<Consejero> consejeros = cLogNeg.leerConsejeros();
-            mLogNeg = new MatchBL();
-            Aconsejado a = (Aconsejado)cmbAconsejados.SelectedItem;
-            BindingList<Match> matches = mLogNeg.listarMatches(a.Codigo);
-            dgvMatches.AutoGenerateColumns = false;
-            dgvMatches.DataSource = matches;
+        }
+
+        private void btnFinMatch_Click(object sender, EventArgs e)
+        {
+            if (dgvMatches.CurrentRow.DataBoundItem == null) { MessageBox.Show("No se eligió un Match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+            else {
+                Match m = (Match)dgvMatches.CurrentRow.DataBoundItem;
+                m.FechaFin = DateTime.Today;
+                m.Estado = "Finalizado";
+                if (mLogNeg.finalizarMatch(m))
+                {
+                    if (aLogNeg.habilitarAconsejado(m.IdAconsejado))
+                    {
+                        MessageBox.Show("Match finalizado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    MessageBox.Show("Match no se pudo finalizar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

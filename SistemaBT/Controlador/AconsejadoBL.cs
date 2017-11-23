@@ -28,6 +28,16 @@ namespace Controlador
             return accesoDatosAconsejado.devolverLista();
         }
 
+        public BindingList<Aconsejado> listarAconsejadosPorId(int id)
+        {
+            return accesoDatosAconsejado.devolverListaPorId(id);
+        }
+
+        public BindingList<Aconsejado> listarAconsejadosPorNombre(string nombre)
+        {
+            return accesoDatosAconsejado.devolverListaPorNombre(nombre);
+        }
+
         public bool modificarAconsejado(Aconsejado a)
         {
             return accesoDatosAconsejado.modificarAconsejado(a);
@@ -36,6 +46,11 @@ namespace Controlador
         public bool eliminarAconsejado(int cod)
         {
             return accesoDatosAconsejado.eliminarAconsejado(cod);
+        }
+
+        public bool habilitarAconsejado(int cod)
+        {
+            return accesoDatosAconsejado.habilitarAconsejado(cod);
         }
 
     }

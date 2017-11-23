@@ -31,9 +31,6 @@
             this.menuAconsejadosPrincipal = new System.Windows.Forms.MenuStrip();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vincularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.establecerMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpPersonal = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,9 +44,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grpPerfilUniversitario = new System.Windows.Forms.GroupBox();
-            this.radInhabilitado = new System.Windows.Forms.RadioButton();
-            this.radHabilitado = new System.Windows.Forms.RadioButton();
-            this.lblEstado = new System.Windows.Forms.Label();
             this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
@@ -74,57 +68,31 @@
             this.menuAconsejadosPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoToolStripMenuItem,
             this.modificarToolStripMenuItem,
-            this.vincularToolStripMenuItem,
             this.actividadToolStripMenuItem});
             this.menuAconsejadosPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuAconsejadosPrincipal.Name = "menuAconsejadosPrincipal";
-            this.menuAconsejadosPrincipal.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuAconsejadosPrincipal.Size = new System.Drawing.Size(739, 28);
+            this.menuAconsejadosPrincipal.Size = new System.Drawing.Size(554, 24);
             this.menuAconsejadosPrincipal.TabIndex = 0;
             this.menuAconsejadosPrincipal.Text = "menuStrip1";
             // 
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
-            this.modificarToolStripMenuItem.Text = "Modificar";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.modificarToolStripMenuItem.Text = "Listado";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
-            // 
-            // vincularToolStripMenuItem
-            // 
-            this.vincularToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.establecerMatchToolStripMenuItem,
-            this.verMatchesToolStripMenuItem});
-            this.vincularToolStripMenuItem.Name = "vincularToolStripMenuItem";
-            this.vincularToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
-            this.vincularToolStripMenuItem.Text = "Vincular";
-            this.vincularToolStripMenuItem.Click += new System.EventHandler(this.vincularToolStripMenuItem_Click);
-            // 
-            // establecerMatchToolStripMenuItem
-            // 
-            this.establecerMatchToolStripMenuItem.Name = "establecerMatchToolStripMenuItem";
-            this.establecerMatchToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
-            this.establecerMatchToolStripMenuItem.Text = "Establecer Match";
-            this.establecerMatchToolStripMenuItem.Click += new System.EventHandler(this.establecerMatchToolStripMenuItem_Click);
-            // 
-            // verMatchesToolStripMenuItem
-            // 
-            this.verMatchesToolStripMenuItem.Name = "verMatchesToolStripMenuItem";
-            this.verMatchesToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
-            this.verMatchesToolStripMenuItem.Text = "Ver Matches";
-            this.verMatchesToolStripMenuItem.Click += new System.EventHandler(this.verMatchesToolStripMenuItem_Click);
             // 
             // actividadToolStripMenuItem
             // 
             this.actividadToolStripMenuItem.Name = "actividadToolStripMenuItem";
-            this.actividadToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.actividadToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.actividadToolStripMenuItem.Text = "Actividad";
             this.actividadToolStripMenuItem.Click += new System.EventHandler(this.actividadToolStripMenuItem_Click);
             // 
@@ -139,11 +107,9 @@
             this.grpPersonal.Controls.Add(this.lblFechaNacimiento);
             this.grpPersonal.Controls.Add(this.txtNombreCompleto);
             this.grpPersonal.Controls.Add(this.lblNombreCompleto);
-            this.grpPersonal.Location = new System.Drawing.Point(17, 34);
-            this.grpPersonal.Margin = new System.Windows.Forms.Padding(4);
+            this.grpPersonal.Location = new System.Drawing.Point(13, 28);
             this.grpPersonal.Name = "grpPersonal";
-            this.grpPersonal.Padding = new System.Windows.Forms.Padding(4);
-            this.grpPersonal.Size = new System.Drawing.Size(705, 361);
+            this.grpPersonal.Size = new System.Drawing.Size(529, 293);
             this.grpPersonal.TabIndex = 1;
             this.grpPersonal.TabStop = false;
             this.grpPersonal.Text = "Datos Personales";
@@ -151,39 +117,35 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 175);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(19, 142);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 17);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Dirección:";
             // 
             // txtDireccion
             // 
             this.txtDireccion.Enabled = false;
-            this.txtDireccion.Location = new System.Drawing.Point(188, 172);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDireccion.Location = new System.Drawing.Point(141, 140);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(491, 93);
+            this.txtDireccion.Size = new System.Drawing.Size(369, 76);
             this.txtDireccion.TabIndex = 8;
             // 
             // txtNumeroTelefono
             // 
             this.txtNumeroTelefono.Enabled = false;
-            this.txtNumeroTelefono.Location = new System.Drawing.Point(188, 135);
-            this.txtNumeroTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroTelefono.Location = new System.Drawing.Point(141, 110);
             this.txtNumeroTelefono.Name = "txtNumeroTelefono";
-            this.txtNumeroTelefono.Size = new System.Drawing.Size(187, 22);
+            this.txtNumeroTelefono.Size = new System.Drawing.Size(141, 20);
             this.txtNumeroTelefono.TabIndex = 5;
             // 
             // lblNumeroTelefono
             // 
             this.lblNumeroTelefono.AutoSize = true;
-            this.lblNumeroTelefono.Location = new System.Drawing.Point(24, 135);
-            this.lblNumeroTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumeroTelefono.Location = new System.Drawing.Point(18, 110);
             this.lblNumeroTelefono.Name = "lblNumeroTelefono";
-            this.lblNumeroTelefono.Size = new System.Drawing.Size(142, 17);
+            this.lblNumeroTelefono.Size = new System.Drawing.Size(107, 13);
             this.lblNumeroTelefono.TabIndex = 4;
             this.lblNumeroTelefono.Text = "Número de Telefono:";
             // 
@@ -191,47 +153,42 @@
             // 
             this.ftpFechaNacimiento.Enabled = false;
             this.ftpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ftpFechaNacimiento.Location = new System.Drawing.Point(188, 89);
-            this.ftpFechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.ftpFechaNacimiento.Location = new System.Drawing.Point(141, 72);
             this.ftpFechaNacimiento.Name = "ftpFechaNacimiento";
-            this.ftpFechaNacimiento.Size = new System.Drawing.Size(135, 22);
+            this.ftpFechaNacimiento.Size = new System.Drawing.Size(102, 20);
             this.ftpFechaNacimiento.TabIndex = 3;
             // 
             // lblFechaNacimiento
             // 
             this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(25, 92);
-            this.lblFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(19, 75);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
-            this.lblFechaNacimiento.Size = new System.Drawing.Size(145, 17);
+            this.lblFechaNacimiento.Size = new System.Drawing.Size(111, 13);
             this.lblFechaNacimiento.TabIndex = 2;
             this.lblFechaNacimiento.Text = "Fecha de Nacimiento:";
             // 
             // txtNombreCompleto
             // 
             this.txtNombreCompleto.Enabled = false;
-            this.txtNombreCompleto.Location = new System.Drawing.Point(188, 49);
-            this.txtNombreCompleto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreCompleto.Location = new System.Drawing.Point(141, 40);
             this.txtNombreCompleto.Name = "txtNombreCompleto";
-            this.txtNombreCompleto.Size = new System.Drawing.Size(491, 22);
+            this.txtNombreCompleto.Size = new System.Drawing.Size(369, 20);
             this.txtNombreCompleto.TabIndex = 1;
             // 
             // lblNombreCompleto
             // 
             this.lblNombreCompleto.AutoSize = true;
-            this.lblNombreCompleto.Location = new System.Drawing.Point(25, 53);
-            this.lblNombreCompleto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreCompleto.Location = new System.Drawing.Point(19, 43);
             this.lblNombreCompleto.Name = "lblNombreCompleto";
-            this.lblNombreCompleto.Size = new System.Drawing.Size(141, 17);
+            this.lblNombreCompleto.Size = new System.Drawing.Size(105, 13);
             this.lblNombreCompleto.TabIndex = 0;
             this.lblNombreCompleto.Text = "Nombres y Apellidos:";
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(515, 832);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Location = new System.Drawing.Point(386, 676);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(100, 28);
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -239,10 +196,9 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(623, 832);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(467, 676);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -250,9 +206,6 @@
             // 
             // grpPerfilUniversitario
             // 
-            this.grpPerfilUniversitario.Controls.Add(this.radInhabilitado);
-            this.grpPerfilUniversitario.Controls.Add(this.radHabilitado);
-            this.grpPerfilUniversitario.Controls.Add(this.lblEstado);
             this.grpPerfilUniversitario.Controls.Add(this.txtEspecialidad);
             this.grpPerfilUniversitario.Controls.Add(this.lblObservaciones);
             this.grpPerfilUniversitario.Controls.Add(this.txtObservaciones);
@@ -263,98 +216,57 @@
             this.grpPerfilUniversitario.Controls.Add(this.lblEspecialidad);
             this.grpPerfilUniversitario.Controls.Add(this.lblCodigoAlumno);
             this.grpPerfilUniversitario.Controls.Add(this.txtCodAlumno);
-            this.grpPerfilUniversitario.Location = new System.Drawing.Point(17, 403);
-            this.grpPerfilUniversitario.Margin = new System.Windows.Forms.Padding(4);
+            this.grpPerfilUniversitario.Location = new System.Drawing.Point(13, 327);
             this.grpPerfilUniversitario.Name = "grpPerfilUniversitario";
-            this.grpPerfilUniversitario.Padding = new System.Windows.Forms.Padding(4);
-            this.grpPerfilUniversitario.Size = new System.Drawing.Size(705, 421);
+            this.grpPerfilUniversitario.Size = new System.Drawing.Size(529, 324);
             this.grpPerfilUniversitario.TabIndex = 5;
             this.grpPerfilUniversitario.TabStop = false;
             this.grpPerfilUniversitario.Text = "Perfil Universitario";
             // 
-            // radInhabilitado
-            // 
-            this.radInhabilitado.AutoSize = true;
-            this.radInhabilitado.Location = new System.Drawing.Point(252, 382);
-            this.radInhabilitado.Margin = new System.Windows.Forms.Padding(4);
-            this.radInhabilitado.Name = "radInhabilitado";
-            this.radInhabilitado.Size = new System.Drawing.Size(101, 21);
-            this.radInhabilitado.TabIndex = 17;
-            this.radInhabilitado.TabStop = true;
-            this.radInhabilitado.Text = "Inhabilitado";
-            this.radInhabilitado.UseVisualStyleBackColor = true;
-            // 
-            // radHabilitado
-            // 
-            this.radHabilitado.AutoSize = true;
-            this.radHabilitado.Location = new System.Drawing.Point(131, 382);
-            this.radHabilitado.Margin = new System.Windows.Forms.Padding(4);
-            this.radHabilitado.Name = "radHabilitado";
-            this.radHabilitado.Size = new System.Drawing.Size(92, 21);
-            this.radHabilitado.TabIndex = 16;
-            this.radHabilitado.TabStop = true;
-            this.radHabilitado.Text = "Habilitado";
-            this.radHabilitado.UseVisualStyleBackColor = true;
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(19, 385);
-            this.lblEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(56, 17);
-            this.lblEstado.TabIndex = 15;
-            this.lblEstado.Text = "Estado:";
-            // 
             // txtEspecialidad
             // 
-            this.txtEspecialidad.Location = new System.Drawing.Point(131, 142);
-            this.txtEspecialidad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEspecialidad.Location = new System.Drawing.Point(98, 115);
             this.txtEspecialidad.Name = "txtEspecialidad";
-            this.txtEspecialidad.Size = new System.Drawing.Size(264, 22);
+            this.txtEspecialidad.Size = new System.Drawing.Size(199, 20);
             this.txtEspecialidad.TabIndex = 14;
             // 
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Location = new System.Drawing.Point(19, 235);
-            this.lblObservaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblObservaciones.Location = new System.Drawing.Point(14, 191);
             this.lblObservaciones.Name = "lblObservaciones";
-            this.lblObservaciones.Size = new System.Drawing.Size(100, 17);
+            this.lblObservaciones.Size = new System.Drawing.Size(76, 13);
             this.lblObservaciones.TabIndex = 13;
             this.lblObservaciones.Text = "Obervaciones:";
             // 
             // txtObservaciones
             // 
             this.txtObservaciones.Enabled = false;
-            this.txtObservaciones.Location = new System.Drawing.Point(131, 232);
-            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObservaciones.Location = new System.Drawing.Point(98, 188);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(548, 142);
+            this.txtObservaciones.Size = new System.Drawing.Size(412, 116);
             this.txtObservaciones.TabIndex = 12;
             // 
             // lblNumeroCiclo
             // 
             this.lblNumeroCiclo.AutoSize = true;
-            this.lblNumeroCiclo.Location = new System.Drawing.Point(67, 174);
-            this.lblNumeroCiclo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumeroCiclo.Location = new System.Drawing.Point(50, 141);
             this.lblNumeroCiclo.Name = "lblNumeroCiclo";
-            this.lblNumeroCiclo.Size = new System.Drawing.Size(42, 17);
+            this.lblNumeroCiclo.Size = new System.Drawing.Size(33, 13);
             this.lblNumeroCiclo.TabIndex = 11;
             this.lblNumeroCiclo.Text = "Ciclo:";
             // 
             // numUDCiclo
             // 
-            this.numUDCiclo.Location = new System.Drawing.Point(131, 172);
-            this.numUDCiclo.Margin = new System.Windows.Forms.Padding(4);
+            this.numUDCiclo.Location = new System.Drawing.Point(98, 140);
             this.numUDCiclo.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.numUDCiclo.Name = "numUDCiclo";
-            this.numUDCiclo.Size = new System.Drawing.Size(64, 22);
+            this.numUDCiclo.Size = new System.Drawing.Size(48, 20);
             this.numUDCiclo.TabIndex = 10;
             this.numUDCiclo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numUDCiclo.Value = new decimal(new int[] {
@@ -366,39 +278,35 @@
             // txtCorreo
             // 
             this.txtCorreo.Enabled = false;
-            this.txtCorreo.Location = new System.Drawing.Point(131, 202);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCorreo.Location = new System.Drawing.Point(98, 164);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(388, 22);
+            this.txtCorreo.Size = new System.Drawing.Size(292, 20);
             this.txtCorreo.TabIndex = 7;
             // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Location = new System.Drawing.Point(68, 205);
-            this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCorreo.Location = new System.Drawing.Point(51, 167);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(55, 17);
+            this.lblCorreo.Size = new System.Drawing.Size(41, 13);
             this.lblCorreo.TabIndex = 6;
             this.lblCorreo.Text = "Correo:";
             // 
             // lblEspecialidad
             // 
             this.lblEspecialidad.AutoSize = true;
-            this.lblEspecialidad.Location = new System.Drawing.Point(29, 145);
-            this.lblEspecialidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEspecialidad.Location = new System.Drawing.Point(22, 118);
             this.lblEspecialidad.Name = "lblEspecialidad";
-            this.lblEspecialidad.Size = new System.Drawing.Size(92, 17);
+            this.lblEspecialidad.Size = new System.Drawing.Size(70, 13);
             this.lblEspecialidad.TabIndex = 8;
             this.lblEspecialidad.Text = "Especialidad:";
             // 
             // lblCodigoAlumno
             // 
             this.lblCodigoAlumno.AutoSize = true;
-            this.lblCodigoAlumno.Location = new System.Drawing.Point(25, 44);
-            this.lblCodigoAlumno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigoAlumno.Location = new System.Drawing.Point(19, 36);
             this.lblCodigoAlumno.Name = "lblCodigoAlumno";
-            this.lblCodigoAlumno.Size = new System.Drawing.Size(127, 17);
+            this.lblCodigoAlumno.Size = new System.Drawing.Size(96, 13);
             this.lblCodigoAlumno.TabIndex = 7;
             this.lblCodigoAlumno.Text = "Código de Alumno:";
             this.lblCodigoAlumno.Click += new System.EventHandler(this.lblCodigoAlumno_Click);
@@ -406,20 +314,18 @@
             // txtCodAlumno
             // 
             this.txtCodAlumno.Enabled = false;
-            this.txtCodAlumno.Location = new System.Drawing.Point(161, 39);
-            this.txtCodAlumno.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodAlumno.Location = new System.Drawing.Point(121, 32);
             this.txtCodAlumno.Name = "txtCodAlumno";
-            this.txtCodAlumno.Size = new System.Drawing.Size(120, 22);
+            this.txtCodAlumno.Size = new System.Drawing.Size(91, 20);
             this.txtCodAlumno.TabIndex = 0;
             this.txtCodAlumno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCodAlumno.TextChanged += new System.EventHandler(this.txtCodAlumno_TextChanged);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(17, 832);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Location = new System.Drawing.Point(13, 676);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(100, 28);
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -427,10 +333,9 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(124, 832);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(93, 676);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -438,10 +343,10 @@
             // 
             // frmAdministrarAconsejados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(739, 873);
+            this.ClientSize = new System.Drawing.Size(554, 655);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.grpPerfilUniversitario);
@@ -452,7 +357,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Location = new System.Drawing.Point(160, 0);
             this.MainMenuStrip = this.menuAconsejadosPrincipal;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAdministrarAconsejados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Administración de aconsejados";
@@ -473,7 +377,6 @@
         private System.Windows.Forms.MenuStrip menuAconsejadosPrincipal;
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vincularToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actividadToolStripMenuItem;
         private System.Windows.Forms.GroupBox grpPersonal;
         private System.Windows.Forms.Label label2;
@@ -499,10 +402,5 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.TextBox txtEspecialidad;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.RadioButton radInhabilitado;
-        private System.Windows.Forms.RadioButton radHabilitado;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.ToolStripMenuItem establecerMatchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verMatchesToolStripMenuItem;
     }
 }
